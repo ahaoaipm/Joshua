@@ -1,0 +1,1120 @@
+<title>ENFJ 的一生</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: a single 9:16 "phone video" stage centred on a quiet field, player controls and a life-chapter rail beneath it. */
+:root {
+  --bg: #E9F1EC;
+  --surface: #FFFFFF;
+  --fg: #1F2B25;
+  --muted: #5E6E66;
+  --line: #CBDAD1;
+  --accent: #2E9C6A;
+  --accent-ink: #FFFFFF;
+  --sun: #E9A21E;
+  --stage-shadow: rgba(26, 58, 42, 0.22);
+  --f-display: "ZCOOL KuaiLe", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --f-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101814; --surface: #18231D; --fg: #E4EEE8; --muted: #93A69C; --line: #2A3B32;
+    --accent: #45C08A; --accent-ink: #0C1A13; --sun: #F4B940; --stage-shadow: rgba(0,0,0,0.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101814; --surface: #18231D; --fg: #E4EEE8; --muted: #93A69C; --line: #2A3B32;
+  --accent: #45C08A; --accent-ink: #0C1A13; --sun: #F4B940; --stage-shadow: rgba(0,0,0,0.5);
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 28px;
+  box-sizing: border-box;
+}
+.wrap { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 36px; align-items: start; }
+.stage-col { display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+.stage {
+  position: relative; height: min(78vh, 820px); aspect-ratio: 9 / 16; max-width: 100%;
+  border-radius: 22px; overflow: hidden; background: #1b1722;
+  box-shadow: 0 18px 50px var(--stage-shadow);
+}
+.stage canvas { width: 100%; height: 100%; display: block; }
+.big-play {
+  position: absolute; inset: 0; display: grid; place-items: center; background: transparent; border: 0; cursor: pointer;
+}
+.big-play span {
+  width: 92px; height: 92px; border-radius: 50%; background: rgba(255,255,255,0.92); display: grid; place-items: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25); transition: transform .2s;
+}
+.big-play:hover span, .big-play:focus-visible span { transform: scale(1.07); }
+.big-play:focus-visible { outline: 3px solid var(--accent); outline-offset: -6px; }
+.big-play svg { width: 38px; height: 38px; margin-left: 6px; fill: #2E9C6A; }
+.loading { position: absolute; left: 0; right: 0; bottom: 18%; text-align: center; color: #fff; font-size: 15px; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.controls { display: flex; align-items: center; gap: 10px; }
+.btn {
+  font-family: var(--f-body); font-size: 14px; font-weight: 500; border: 1px solid var(--line); background: var(--surface); color: var(--fg);
+  border-radius: 999px; height: 38px; padding: 0 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; flex: none;
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); min-width: 72px; justify-content: center; }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.time { font-variant-numeric: tabular-nums; font-size: 13px; color: var(--muted); flex: none; }
+#scrub { flex: 1; min-width: 0; accent-color: var(--accent); }
+.info { display: flex; flex-direction: column; gap: 18px; min-width: 0; padding-top: 8px; }
+.eyebrow { font-size: 12px; letter-spacing: .14em; color: var(--muted); }
+h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 64px); line-height: 1.05; margin: 0; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--accent); }
+.lede { font-size: 15px; line-height: 1.75; color: var(--muted); max-width: 34em; margin: 0; }
+.letters { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; max-width: 420px; }
+.letter { border: 1px solid var(--line); border-radius: 12px; padding: 10px 10px 8px; background: var(--surface); }
+.letter b { font-family: var(--f-display); font-weight: 400; font-size: 28px; color: var(--accent); display: block; line-height: 1; }
+.letter small { font-size: 12px; color: var(--muted); }
+.rail-title { font-size: 13px; font-weight: 700; margin: 6px 0 0; }
+.rail { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+.rail button {
+  width: 100%; text-align: left; font-family: var(--f-body); background: transparent; color: var(--fg); border: 1px solid transparent;
+  border-radius: 10px; padding: 7px 10px; cursor: pointer; display: flex; gap: 10px; align-items: baseline;
+}
+.rail button:hover { border-color: var(--line); background: var(--surface); }
+.rail button:focus-visible { outline: 2px solid var(--accent); }
+.rail button.on { background: var(--surface); border-color: var(--accent); }
+.rail .age { font-family: var(--f-display); font-size: 18px; color: var(--accent); min-width: 2.6em; font-variant-numeric: tabular-nums; }
+.rail .nm { font-size: 13px; color: var(--muted); }
+.note { font-size: 12px; color: var(--muted); line-height: 1.6; margin: 0; }
+@media (max-width: 760px) {
+  .wrap { grid-template-columns: minmax(0,1fr); gap: 22px; }
+  .stage { height: auto; width: 100%; }
+  .info { order: -1; padding-top: 0; }
+}
+body.export { padding: 0; background: #000; }
+body.export .wrap { display: block; max-width: none; }
+body.export .info, body.export .controls, body.export .big-play, body.export .loading { display: none !important; }
+body.export .stage { width: 1080px; height: 1920px; border-radius: 0; box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .big-play span { transition: none; } }
+</style>
+
+<div class="wrap">
+  <div class="stage-col">
+    <div class="stage" id="stage">
+      <canvas id="cv" aria-label="ENFJ 的一生 动画画面"></canvas>
+      <button class="big-play" id="bigPlay" aria-label="播放动画"><span><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button>
+      <div class="loading" id="loading" hidden>正在生成配乐…</div>
+    </div>
+    <div class="controls">
+      <button class="btn primary" id="playBtn">播放</button>
+      <span class="time" id="time">0:00 / 2:42</span>
+      <input type="range" id="scrub" min="0" max="1000" value="0" aria-label="播放进度">
+      <button class="btn" id="muteBtn" aria-pressed="false">静音</button>
+    </div>
+  </div>
+  <div class="info">
+    <div class="eyebrow">MBTI 人格动画 · 2分42秒 · 带字幕和配乐</div>
+    <h1>ENFJ 的<em>一生</em></h1>
+    <p class="lede">主人公型人格。从出生时对每个人笑，到老了坐在摇椅上看满天星光：TA 用一辈子学会两件事，照亮别人，也照顾好自己。</p>
+    <div class="letters">
+      <div class="letter"><b>E</b><small>外向</small></div>
+      <div class="letter"><b>N</b><small>直觉</small></div>
+      <div class="letter"><b>F</b><small>情感</small></div>
+      <div class="letter"><b>J</b><small>判断</small></div>
+    </div>
+    <p class="rail-title">人生章节（点击跳转）</p>
+    <ul class="rail" id="rail"></ul>
+    <p class="note">配乐由浏览器实时合成，第一次播放需要一两秒生成。空格键播放或暂停，← → 快退快进 5 秒。</p>
+  </div>
+</div>
+
+<script>
+(() => {
+'use strict';
+const W = 1080, H = 1920;
+const EXPORT = !!window.__ENFJ_EXPORT__;
+if (EXPORT) document.body.classList.add('export');
+
+/* ---------- utils ---------- */
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, p) => a + (b - a) * p;
+const P = (t, a, b) => clamp((t - a) / (b - a));
+const E = {
+  out: p => 1 - Math.pow(1 - p, 3),
+  inOut: p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2,
+  back: p => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); },
+  elastic: p => p === 0 || p === 1 ? p : Math.pow(2, -10 * p) * Math.sin((p * 10 - .75) * (2 * Math.PI) / 3) + 1,
+};
+const win = (t, a, b, fi = .3, fo = .3) => Math.min(P(t, a, a + fi), 1 - P(t, b - fo, b));
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function hex(c) { const n = parseInt(c.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+function mix(c1, c2, p) { const a = hex(c1), b = hex(c2); return '#' + a.map((v, i) => Math.round(lerp(v, b[i], p)).toString(16).padStart(2, '0')).join(''); }
+const TAU = Math.PI * 2;
+
+const FD = '"ZCOOL KuaiLe", "Noto Sans SC", sans-serif';
+const FB = '"Noto Sans SC", "ZCOOL KuaiLe", sans-serif';
+const usedText = new Set();
+
+const C = {
+  green: '#34A873', greenD: '#23825A', sun: '#FFC845', skin: '#FFDDBF', ink: '#3B3240', cheek: '#FF8E8E',
+  hair: '#4A3428', pants: '#41506B', white: '#FFFFFF',
+  blue: '#5B8DEF', coral: '#F07A6A', purple: '#B07CE8', orange: '#F2A541', teal: '#4DBAC2', pink: '#E8679A', grey: '#9AA3AE',
+};
+
+/* ---------- drawing primitives ---------- */
+function rr(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+function circle(ctx, x, y, r, fill) { ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fillStyle = fill; ctx.fill(); }
+function grad(ctx, y0, y1, stops) { const g = ctx.createLinearGradient(0, y0, 0, y1); stops.forEach((c, i) => g.addColorStop(i / (stops.length - 1), c)); return g; }
+function sky(ctx, top, bottom) { ctx.fillStyle = grad(ctx, 0, H, [top, bottom]); ctx.fillRect(0, 0, W, H); }
+function ground(ctx, y, c1, c2) { ctx.fillStyle = grad(ctx, y, H, [c1, c2]); ctx.fillRect(0, y, W, H - y); }
+
+function text(ctx, s, x, y, o = {}) {
+  usedText.add(s);
+  const size = o.size || 48;
+  ctx.font = `${o.weight || ''} ${size}px ${o.font || FD}`.trim();
+  ctx.textAlign = o.align || 'center';
+  ctx.textBaseline = o.base || 'middle';
+  if (o.stroke) { ctx.lineJoin = 'round'; ctx.lineWidth = o.strokeW || size * 0.18; ctx.strokeStyle = o.stroke; ctx.strokeText(s, x, y); }
+  ctx.fillStyle = o.color || C.ink;
+  ctx.fillText(s, x, y);
+}
+function mixedTitle(ctx, latin, cn, x, y, size, stroke) {
+  ctx.font = `900 ${size * .92}px ${FB}`; const w1 = ctx.measureText(latin).width;
+  ctx.font = `${size}px ${FD}`; const w2 = ctx.measureText(cn).width;
+  const x0 = x - (w1 + w2) / 2;
+  text(ctx, latin, x0, y + size * .02, { size: size * .92, font: FB, weight: 900, align: 'left', color: '#fff', stroke, strokeW: size * .17 });
+  text(ctx, cn, x0 + w1, y, { size, align: 'left', color: '#fff', stroke, strokeW: size * .17 });
+}
+function heart(ctx, x, y, size, color) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(size / 100, size / 100);
+  ctx.beginPath(); ctx.moveTo(0, 30);
+  ctx.bezierCurveTo(-10, 20, -50, 0, -50, -25); ctx.bezierCurveTo(-50, -50, -15, -55, 0, -30);
+  ctx.bezierCurveTo(15, -55, 50, -50, 50, -25); ctx.bezierCurveTo(50, 0, 10, 20, 0, 30);
+  ctx.fillStyle = color; ctx.fill(); ctx.restore();
+}
+function sparkle(ctx, x, y, r, color, rot = 0) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.beginPath();
+  for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4, rad = i % 2 ? r * .32 : r; ctx.lineTo(Math.cos(a) * rad, Math.sin(a) * rad); }
+  ctx.closePath(); ctx.fillStyle = color; ctx.fill(); ctx.restore();
+}
+function glow(ctx, x, y, r, color, a = 1) {
+  const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+  const [R, G, B] = hex(color);
+  g.addColorStop(0, `rgba(${R},${G},${B},${0.85 * a})`); g.addColorStop(.45, `rgba(${R},${G},${B},${0.35 * a})`); g.addColorStop(1, `rgba(${R},${G},${B},0)`);
+  ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2);
+}
+function cloud(ctx, x, y, s, color) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = color; ctx.beginPath();
+  ctx.arc(-60, 10, 45, 0, TAU); ctx.arc(0, -15, 60, 0, TAU); ctx.arc(60, 10, 45, 0, TAU); ctx.rect(-60, 10, 120, 45); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(0, 40, 105, 30, 0, 0, TAU); ctx.fill(); ctx.restore();
+}
+function bubble(ctx, x, y, s, o = {}) {
+  usedText.add(s);
+  const size = o.size || 40, pad = size * .55;
+  ctx.font = `${o.weight || 500} ${size}px ${o.font || FB}`;
+  const w = ctx.measureText(s).width + pad * 2, h = size + pad * 1.3;
+  const sc = o.scale ?? 1, alpha = o.alpha ?? 1;
+  if (alpha <= 0 || sc <= 0) return;
+  ctx.save(); ctx.globalAlpha *= alpha; ctx.translate(x, y); ctx.scale(sc, sc);
+  const bx = o.align === 'left' ? 0 : o.align === 'right' ? -w : -w / 2;
+  const fill = o.fill || '#fff';
+  ctx.shadowColor = 'rgba(0,0,0,0.12)'; ctx.shadowBlur = 16; ctx.shadowOffsetY = 6;
+  rr(ctx, bx, -h, w, h, h / 2); ctx.fillStyle = fill; ctx.fill();
+  ctx.shadowColor = 'transparent';
+  if (o.tail !== false) {
+    const tx = o.tailX ?? (o.align === 'left' ? 34 : o.align === 'right' ? -34 : 0);
+    ctx.beginPath(); ctx.moveTo(tx - 16, -4); ctx.lineTo(tx + (o.tailDir || 0) * 18, 26); ctx.lineTo(tx + 16, -4); ctx.fillStyle = fill; ctx.fill();
+  }
+  ctx.fillStyle = o.color || C.ink; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(s, bx + w / 2, -h / 2 + 1);
+  ctx.restore();
+}
+function thought(ctx, x, y, s, o = {}) {
+  const a = o.alpha ?? 1; if (a <= 0) return;
+  ctx.save(); ctx.globalAlpha *= a;
+  circle(ctx, x - 40 * (o.dir || 1), y + 70, 10, o.fill || '#fff');
+  circle(ctx, x - 22 * (o.dir || 1), y + 42, 16, o.fill || '#fff');
+  ctx.restore();
+  bubble(ctx, x, y, s, { ...o, tail: false });
+}
+
+/* ---------- characters ---------- */
+const AGE = {
+  kid:   { hr: 74, bh: 92,  lh: 58,  bw: 94,  arm: 70, lw: 22, aw: 18 },
+  teen:  { hr: 68, bh: 125, lh: 92,  bw: 98,  arm: 86, lw: 22, aw: 19 },
+  adult: { hr: 66, bh: 140, lh: 108, bw: 106, arm: 94, lw: 24, aw: 20 },
+  old:   { hr: 66, bh: 132, lh: 100, bw: 110, arm: 90, lw: 24, aw: 20 },
+};
+function person(ctx, o) {
+  const a = AGE[o.age || 'adult'], s = o.s || 1, fx = o.flip ? -1 : 1;
+  const shirt = o.shirt || C.green, hairC = o.hair || C.hair, skin = o.skin || C.skin;
+  const lh = o.sit ? a.lh * 0.5 : a.lh;
+  const bob = o.bob || 0;
+  const hipY = -lh + bob;
+  const bodyTop = hipY - a.bh + (o.hunch || 0);
+  const hcx = (o.lean || 0), hcy = bodyTop - a.hr * 0.82 + (o.headBob || 0);
+  const shY = bodyTop + 28, shX = a.bw / 2 - 12;
+  const aL = o.aL ?? 0.18, aR = o.aR ?? 0.18;
+  const handL = [-shX - Math.sin(aL) * a.arm, shY + Math.cos(aL) * a.arm];
+  const handR = [shX + Math.sin(aR) * a.arm, shY + Math.cos(aR) * a.arm];
+  ctx.save(); ctx.translate(o.x, o.y); ctx.scale(s * fx, s); ctx.globalAlpha *= (o.alpha ?? 1);
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  // shadow
+  if (!o.noShadow) { ctx.fillStyle = 'rgba(0,0,0,0.12)'; ctx.beginPath(); ctx.ellipse(0, 4, a.bw * .62, 14, 0, 0, TAU); ctx.fill(); }
+  if (o.longHair) { ctx.fillStyle = hairC; rr(ctx, hcx - a.hr - 8, hcy - a.hr * .6, a.hr * 2 + 16, a.hr * 1.75, 40); ctx.fill(); }
+  // legs
+  const wk = o.walk || 0;
+  ctx.strokeStyle = o.pants || C.pants; ctx.lineWidth = a.lw;
+  [[-1, Math.sin(wk) * .38], [1, -Math.sin(wk) * .38]].forEach(([side, ang]) => {
+    const hx = side * a.bw * .22;
+    let fx2 = hx + Math.sin(ang) * lh, fy = hipY + Math.cos(ang) * lh;
+    if (o.sit) { fx2 = hx + side * 8; fy = 0; }
+    ctx.beginPath(); ctx.moveTo(hx, hipY); ctx.lineTo(fx2, fy); ctx.stroke();
+    ctx.fillStyle = '#2E2A33'; ctx.beginPath(); ctx.ellipse(fx2 + side * 6, fy + 2, 17, 10, 0, 0, TAU); ctx.fill();
+  });
+  // body
+  rr(ctx, -a.bw / 2, bodyTop, a.bw, a.bh + 10, [a.bw * .42, a.bw * .42, 18, 18]); ctx.fillStyle = shirt; ctx.fill();
+  ctx.fillStyle = 'rgba(0,0,0,0.07)'; rr(ctx, -a.bw / 2, bodyTop + a.bh * .62, a.bw, a.bh * .38 + 10, [0, 0, 18, 18]); ctx.fill();
+  if (o.emblem) heart(ctx, -a.bw * .2, bodyTop + 52, 30, o.emblemColor || C.sun);
+  if (o.badge) { usedText.add(o.badge); rr(ctx, 4, bodyTop + 36, 46, 26, 6); ctx.fillStyle = '#E8473F'; ctx.fill(); ctx.save(); ctx.scale(fx, 1); ctx.fillStyle = '#fff'; ctx.font = `700 17px ${FB}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(o.badge, fx * 27, bodyTop + 50); ctx.restore(); }
+  if (o.chestGlow) glow(ctx, 0, bodyTop + 55, 120 * o.chestGlow, C.sun, Math.min(1, o.chestGlow));
+  // arms
+  ctx.strokeStyle = o.sleeve || shirt; ctx.lineWidth = a.aw;
+  [[-shX, handL], [shX, handR]].forEach(([sx, h]) => { ctx.beginPath(); ctx.moveTo(sx, shY); ctx.lineTo(h[0], h[1]); ctx.stroke(); circle(ctx, h[0], h[1], a.aw * .62, skin); });
+  // head
+  ctx.save(); ctx.translate(hcx, hcy); ctx.rotate(o.tilt || 0);
+  const r = a.hr;
+  circle(ctx, -r * .98, 8, r * .2, skin); circle(ctx, r * .98, 8, r * .2, skin);
+  circle(ctx, 0, 0, r, skin);
+  drawHair(ctx, r, o.hairStyle || 'tuft', hairC);
+  drawFace(ctx, r, o);
+  if (o.glasses) { ctx.strokeStyle = '#5A4A42'; ctx.lineWidth = 4; [-1, 1].forEach(sd => { ctx.beginPath(); ctx.arc(sd * r * .36, r * .08, r * .2, 0, TAU); ctx.stroke(); }); ctx.beginPath(); ctx.moveTo(-r * .16, r * .06); ctx.lineTo(r * .16, r * .06); ctx.stroke(); }
+  if (o.crown) {
+    const c = o.crown; ctx.save(); ctx.translate(0, -r - 18 - (1 - c) * 60); ctx.globalAlpha *= c; ctx.beginPath();
+    ctx.moveTo(-42, 20); ctx.lineTo(-48, -22); ctx.lineTo(-22, 0); ctx.lineTo(0, -30); ctx.lineTo(22, 0); ctx.lineTo(48, -22); ctx.lineTo(42, 20); ctx.closePath();
+    ctx.fillStyle = C.sun; ctx.fill(); circle(ctx, 0, -30, 6, '#F07A6A'); ctx.restore();
+  }
+  ctx.restore();
+  ctx.restore();
+  const W2 = (p) => [o.x + p[0] * s * fx, o.y + p[1] * s];
+  return { hl: W2(handL), hr: W2(handR), head: W2([hcx, hcy]), r: r * s, top: o.y + (hcy - r) * s, chest: W2([0, bodyTop + 55]) };
+}
+function drawHair(ctx, r, style, c) {
+  ctx.fillStyle = c;
+  if (style === 'none') return;
+  if (style === 'old') {
+    ctx.beginPath(); ctx.ellipse(-r * .86, -r * .1, r * .26, r * .44, .3, 0, TAU); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(r * .86, -r * .1, r * .26, r * .44, -.3, 0, TAU); ctx.fill();
+    ctx.beginPath(); ctx.arc(0, -r * .05, r * 1.0, Math.PI * 1.18, Math.PI * 1.82); ctx.arc(0, -r * .3, r * .65, Math.PI * 1.8, Math.PI * 1.2, true); ctx.fill();
+    ctx.strokeStyle = c; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(0, -r); ctx.quadraticCurveTo(r * .3, -r * 1.35, r * .1, -r * 1.25); ctx.stroke();
+    return;
+  }
+  ctx.save(); ctx.beginPath(); ctx.arc(0, 0, r + 5, 0, TAU); ctx.clip();
+  ctx.beginPath(); ctx.moveTo(-r - 6, -r * .05);
+  ctx.quadraticCurveTo(-r * .6, -r * .5, -r * .2, -r * .35); ctx.quadraticCurveTo(r * .2, -r * .55, r * .5, -r * .3); ctx.quadraticCurveTo(r * .8, -r * .45, r + 6, r * .05);
+  ctx.lineTo(r + 6, -r - 6); ctx.lineTo(-r - 6, -r - 6); ctx.closePath(); ctx.fill(); ctx.restore();
+  if (style === 'tuft') {
+    ctx.strokeStyle = c; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-4, -r + 4);
+    ctx.bezierCurveTo(-10, -r - 40, 34, -r - 44, 22, -r - 18); ctx.stroke();
+  } else if (style === 'bun') {
+    circle(ctx, 0, -r - 18, r * .38, c);
+  } else if (style === 'spiky') {
+    ctx.beginPath(); for (let i = -2; i <= 2; i++) { ctx.moveTo(i * 26 - 16, -r * .78); ctx.lineTo(i * 26, -r - 26 + Math.abs(i) * 8); ctx.lineTo(i * 26 + 16, -r * .78); } ctx.fill();
+  } else if (style === 'pony') {
+    ctx.beginPath(); ctx.ellipse(r * .95, -r * .35, r * .28, r * .55, -.6, 0, TAU); ctx.fill();
+  } else if (style === 'twin') {
+    circle(ctx, -r * .92, -r * .55, r * .32, c); circle(ctx, r * .92, -r * .55, r * .32, c);
+  }
+}
+function drawFace(ctx, r, o) {
+  const mood = o.mood || 'smile', ex = r * .36, ey = r * .1, lk = o.look || 0;
+  ctx.strokeStyle = C.ink; ctx.fillStyle = C.ink; ctx.lineCap = 'round'; ctx.lineWidth = 5;
+  ctx.globalAlpha *= 1;
+  ctx.fillStyle = 'rgba(255,120,120,0.45)';
+  [-1, 1].forEach(sd => { ctx.beginPath(); ctx.ellipse(sd * r * .56, r * .38, r * .15, r * .09, 0, 0, TAU); ctx.fill(); });
+  ctx.fillStyle = C.ink;
+  const closed = o.blink || mood === 'calm' || mood === 'joy';
+  [-1, 1].forEach(sd => {
+    const x = sd * ex + lk, y = ey;
+    if (closed) { ctx.beginPath(); if (mood === 'calm' && !o.blink) ctx.arc(x, y + 6, r * .11, Math.PI * 1.1, Math.PI * 1.9); else if (mood === 'joy') ctx.arc(x, y + 8, r * .12, Math.PI * 1.15, Math.PI * 1.85); else { ctx.moveTo(x - 9, y); ctx.lineTo(x + 9, y); } ctx.stroke(); }
+    else { circle(ctx, x, y, r * .1, C.ink); circle(ctx, x + 3, y - 3, r * .035, '#fff'); }
+  });
+  // brows
+  if (mood === 'sad' || mood === 'worried') { ctx.lineWidth = 5; [-1, 1].forEach(sd => { ctx.beginPath(); ctx.moveTo(sd * ex - sd * 16 + lk, ey - 30); ctx.lineTo(sd * ex + sd * 14 + lk, ey - 38); ctx.stroke(); }); }
+  if (mood === 'angry') { ctx.lineWidth = 6; [-1, 1].forEach(sd => { ctx.beginPath(); ctx.moveTo(sd * ex - sd * 16 + lk, ey - 36); ctx.lineTo(sd * ex + sd * 14 + lk, ey - 26); ctx.stroke(); }); }
+  ctx.lineWidth = 5;
+  const my = r * .42;
+  if (mood === 'smile' || mood === 'calm') { ctx.beginPath(); ctx.arc(lk * .6, my - 12, r * .2, Math.PI * .18, Math.PI * .82); ctx.stroke(); }
+  else if (mood === 'big' || mood === 'joy') { ctx.beginPath(); ctx.arc(lk * .6, my - 10, r * .22, 0, Math.PI); ctx.closePath(); ctx.fillStyle = '#C8424F'; ctx.fill(); ctx.fillStyle = '#FF9AA5'; ctx.beginPath(); ctx.arc(lk * .6, my + 2, r * .1, 0, Math.PI); ctx.fill(); }
+  else if (mood === 'sad') { ctx.beginPath(); ctx.arc(lk * .6, my + 12, r * .16, Math.PI * 1.2, Math.PI * 1.8); ctx.stroke(); }
+  else if (mood === 'angry') { ctx.beginPath(); ctx.moveTo(-14 + lk, my); ctx.lineTo(14 + lk, my - 3); ctx.stroke(); }
+  else if (mood === 'worried') { ctx.beginPath(); ctx.moveTo(-14 + lk, my); ctx.quadraticCurveTo(-5 + lk, my - 8, 2 + lk, my); ctx.quadraticCurveTo(8 + lk, my + 7, 14 + lk, my - 2); ctx.stroke(); }
+  else if (mood === 'o') { ctx.beginPath(); ctx.ellipse(lk * .6, my, 9, 12, 0, 0, TAU); ctx.fillStyle = '#C8424F'; ctx.fill(); }
+  if (o.tear != null) { const p = o.tear % 1; ctx.globalAlpha *= (1 - p); ctx.fillStyle = '#7CC4FF'; [-1, 1].forEach(sd => { const tx = sd * ex + lk, ty = ey + 18 + p * 70; ctx.beginPath(); ctx.moveTo(tx, ty - 12); ctx.quadraticCurveTo(tx + 9, ty + 4, tx, ty + 8); ctx.quadraticCurveTo(tx - 9, ty + 4, tx, ty - 12); ctx.fill(); }); }
+  if (o.sweat) { ctx.globalAlpha = 1; ctx.fillStyle = '#9ED8FF'; const tx = r * .8, ty = -r * .35; ctx.beginPath(); ctx.moveTo(tx, ty - 18); ctx.quadraticCurveTo(tx + 14, ty + 6, tx, ty + 12); ctx.quadraticCurveTo(tx - 14, ty + 6, tx, ty - 18); ctx.fill(); }
+}
+function baby(ctx, x, y, s, o = {}) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  const wave = o.wave || 0;
+  ctx.strokeStyle = C.skin; ctx.lineCap = 'round'; ctx.lineWidth = 18;
+  ctx.beginPath(); ctx.moveTo(-50, -120); ctx.lineTo(-85, -165 - Math.sin(wave) * 18); ctx.stroke(); circle(ctx, -85, -165 - Math.sin(wave) * 18, 13, C.skin);
+  ctx.beginPath(); ctx.moveTo(50, -120); ctx.lineTo(85, -165 + Math.sin(wave) * 18); ctx.stroke(); circle(ctx, 85, -165 + Math.sin(wave) * 18, 13, C.skin);
+  ctx.beginPath(); ctx.ellipse(0, -80, 78, 100, 0, 0, TAU); ctx.fillStyle = '#BFE8D2'; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(0, -40, 78, 60, 0, 0, Math.PI); ctx.fillStyle = '#A6DDBF'; ctx.fill();
+  heart(ctx, 0, -70, 34, C.sun);
+  ctx.save(); ctx.translate(0, -205);
+  circle(ctx, 0, 0, 78, C.skin);
+  ctx.strokeStyle = C.hair; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(-4, -74); ctx.bezierCurveTo(-14, -112, 30, -118, 20, -92); ctx.stroke();
+  drawFace(ctx, 78, { mood: o.mood || 'smile', blink: o.blink });
+  ctx.restore(); ctx.restore();
+}
+
+/* ---------- scene backdrops & props ---------- */
+function sunDisc(ctx, x, y, r, t, rays = true) {
+  glow(ctx, x, y, r * 2.6, C.sun, .8);
+  if (rays) { ctx.save(); ctx.translate(x, y); ctx.rotate(t * .15); ctx.fillStyle = 'rgba(255,214,102,0.35)'; for (let i = 0; i < 12; i++) { ctx.rotate(TAU / 12); ctx.beginPath(); ctx.moveTo(r * 1.1, -10); ctx.lineTo(r * 1.75, 0); ctx.lineTo(r * 1.1, 10); ctx.fill(); } ctx.restore(); }
+  circle(ctx, x, y, r, '#FFD45E');
+}
+function stars(ctx, t, n, seed, alpha = 1, yMax = 1100) {
+  const R = rng(seed);
+  for (let i = 0; i < n; i++) { const x = R() * W, y = R() * yMax, ph = R() * TAU, sz = 2 + R() * 4; ctx.globalAlpha = alpha * (.45 + .55 * Math.sin(t * 2 + ph) ** 2); circle(ctx, x, y, sz, '#FFF6D8'); }
+  ctx.globalAlpha = 1;
+}
+function rain(ctx, t, amount, seed = 3) {
+  if (amount <= 0) return;
+  const R = rng(seed); ctx.strokeStyle = `rgba(200,220,255,${.5 * amount})`; ctx.lineWidth = 4; ctx.lineCap = 'round';
+  for (let i = 0; i < 90 * amount; i++) { const x0 = R() * (W + 200), sp = 1400 + R() * 500, off = R() * H; const y = (off + t * sp) % (H + 200) - 100; const x = (x0 - y * .18) % (W + 200); ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - 10, y + 50); ctx.stroke(); }
+}
+function confetti(ctx, t, seed, p) {
+  if (p <= 0) return; const R = rng(seed); const cols = [C.sun, C.coral, C.blue, C.green, C.pink, C.purple];
+  for (let i = 0; i < 70; i++) { const x = R() * W, sp = 260 + R() * 260, y = -60 + ((R() * 900 + t * sp) % 1500), rot = t * (2 + R() * 3); ctx.save(); ctx.globalAlpha = p; ctx.translate(x + Math.sin(t * 2 + i) * 30, y); ctx.rotate(rot); ctx.fillStyle = cols[i % cols.length]; ctx.fillRect(-9, -5, 18, 10); ctx.restore(); }
+}
+function floatingHearts(ctx, t, x, y, start, n = 6, color = '#FF6F8E', spread = 160) {
+  for (let i = 0; i < n; i++) { const st = start + i * .35, p = (t - st) / 2.2; if (p <= 0 || p >= 1) continue; const hx = x + Math.sin(i * 2.3) * spread * .5 + Math.sin(p * 6 + i) * 18, hy = y - p * 300; ctx.globalAlpha = Math.sin(p * Math.PI); heart(ctx, hx, hy, 30 + (i % 3) * 10, color); }
+  ctx.globalAlpha = 1;
+}
+function tree(ctx, x, y, s, c = '#4FB477') { ctx.fillStyle = '#8A5A3C'; ctx.fillRect(x - 12 * s, y - 120 * s, 24 * s, 120 * s); circle(ctx, x, y - 170 * s, 80 * s, c); circle(ctx, x - 55 * s, y - 130 * s, 55 * s, c); circle(ctx, x + 55 * s, y - 130 * s, 55 * s, c); }
+function house(ctx, x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(x, y - h, w, h); }
+
+/* ---------- header, progress, subtitles ---------- */
+function header(ctx, sc, lt) {
+  if (!sc.age) return;
+  const p = E.back(P(lt, .15, .75)), a = P(lt, .15, .45) * (1 - P(lt, sc.dur - .4, sc.dur - .05));
+  ctx.save(); ctx.globalAlpha = a; ctx.translate(W / 2, 250); ctx.scale(.6 + .4 * p, .6 + .4 * p);
+  text(ctx, sc.age, 0, 0, { size: 150, color: '#fff', stroke: sc.headStroke || C.ink, strokeW: 22 });
+  ctx.restore();
+  const p2 = E.out(P(lt, .45, 1.05));
+  ctx.save(); ctx.globalAlpha = a * p2; ctx.translate(W / 2, 372 + (1 - p2) * 20);
+  usedText.add(sc.title); ctx.font = `700 44px ${FB}`; const tw = ctx.measureText(sc.title).width + 60;
+  rr(ctx, -tw / 2, -36, tw, 72, 36); ctx.fillStyle = sc.pill || 'rgba(59,50,64,0.82)'; ctx.fill();
+  text(ctx, sc.title, 0, 2, { size: 44, font: FB, weight: 700, color: '#fff' });
+  ctx.restore();
+}
+function tag(ctx, sc, lt) {
+  if (!sc.tag) return; const [a0, s] = sc.tag; const a = win(lt, a0, sc.dur - .3, .35, .35); if (a <= 0) return;
+  const p = E.back(P(lt, a0, a0 + .5));
+  ctx.save(); ctx.globalAlpha = a; ctx.translate(W / 2, 470); ctx.scale(.7 + .3 * p, .7 + .3 * p);
+  usedText.add(s); ctx.font = `700 34px ${FB}`; const tw = ctx.measureText(s).width + 56;
+  rr(ctx, -tw / 2, -30, tw, 60, 30); ctx.fillStyle = C.sun; ctx.fill();
+  text(ctx, s, 0, 2, { size: 34, font: FB, weight: 700, color: '#3B2A10' });
+  ctx.restore();
+}
+function lifeBar(ctx, t) {
+  const age = ageAt(t); if (age == null) return;
+  const x0 = 150, x1 = 930, y = 96, a = sceneAlphaForBar(t);
+  if (a <= 0) return;
+  ctx.save(); ctx.globalAlpha = a * .95;
+  rr(ctx, x0, y - 6, x1 - x0, 12, 6); ctx.fillStyle = 'rgba(255,255,255,0.45)'; ctx.fill();
+  const px = lerp(x0, x1, age / 80);
+  rr(ctx, x0, y - 6, px - x0, 12, 6); ctx.fillStyle = C.sun; ctx.fill();
+  [0, 20, 40, 60, 80].forEach(v => { const tx = lerp(x0, x1, v / 80); text(ctx, String(v), tx, y + 34, { size: 24, font: FB, weight: 700, color: 'rgba(255,255,255,0.9)', stroke: 'rgba(0,0,0,0.25)', strokeW: 5 }); });
+  text(ctx, '人生进度', x0 - 70, y, { size: 26, font: FB, weight: 700, color: '#fff', stroke: 'rgba(0,0,0,0.3)', strokeW: 6 });
+  sunDisc(ctx, px, y, 18, t, false);
+  ctx.restore();
+}
+function subtitles(ctx, sc, lt) {
+  (sc.subs || []).forEach(([a, b, s]) => {
+    const al = win(lt, a, b, .18, .18); if (al <= 0) return;
+    ctx.save(); ctx.globalAlpha = al;
+    const lines = wrap(ctx, s, 960, `700 56px ${FB}`);
+    lines.forEach((ln, i) => {
+      const y = 1700 + (i - (lines.length - 1) / 2) * 76;
+      text(ctx, ln, W / 2, y, { size: 56, font: FB, weight: 700, color: '#fff', stroke: 'rgba(25,18,30,0.78)', strokeW: 12 });
+    });
+    ctx.restore();
+  });
+}
+function wrap(ctx, s, maxW, font) {
+  ctx.font = font; if (ctx.measureText(s).width <= maxW) return [s];
+  const chars = [...s]; const mid = Math.ceil(chars.length / 2);
+  let best = mid; for (let d = 0; d < 6; d++) { for (const k of [mid - d, mid + d]) { if ('，。：、！？'.includes(chars[k - 1])) { best = k; d = 99; break; } } }
+  return [chars.slice(0, best).join(''), chars.slice(best).join('')];
+}
+
+/* ---------- scenes ---------- */
+const S = [];
+function scene(o) { S.push(o); }
+
+// 0  Intro
+scene({ dur: 7, music: 'intro', subs: [[.6, 3.4, '有这样一种人，'], [3.4, 6.9, 'TA 好像生来，就是为了照亮别人。']],
+  draw(ctx, t) {
+    sky(ctx, '#FFF4DE', '#FFE0C2');
+    sunDisc(ctx, W / 2, 1030, 230, t);
+    ground(ctx, 1380, '#9ED9A8', '#6CBF85');
+    const tp = E.back(P(t, .1, .9));
+    ctx.save(); ctx.translate(W / 2, 330); ctx.scale(tp, tp);
+    mixedTitle(ctx, 'ENFJ ', '的一生', 0, 0, 140, C.greenD);
+    ctx.restore();
+    const letters = [['E', '外向'], ['N', '直觉'], ['F', '情感'], ['J', '判断']];
+    letters.forEach(([l, m], i) => {
+      const p = E.back(P(t, 1 + i * .25, 1.5 + i * .25)); if (p <= 0) return;
+      const x = W / 2 + (i - 1.5) * 200, y = 540;
+      ctx.save(); ctx.translate(x, y); ctx.scale(p, p);
+      rr(ctx, -80, -80, 160, 160, 34); ctx.fillStyle = [C.coral, C.blue, C.green, C.purple][i]; ctx.fill();
+      text(ctx, l, 0, -14, { size: 92, font: FB, weight: 900, color: '#fff' });
+      text(ctx, m, 0, 52, { size: 32, font: FB, weight: 700, color: 'rgba(255,255,255,0.95)' });
+      ctx.restore();
+    });
+    const p3 = E.out(P(t, 2.2, 2.8));
+    ctx.save(); ctx.globalAlpha = p3; text(ctx, '主人公型人格 · 天生的引导者', W / 2, 700, { size: 40, font: FB, weight: 700, color: C.greenD }); ctx.restore();
+    const wave = Math.sin(t * 6) * .35;
+    person(ctx, { x: W / 2, y: 1390, s: 1.55, age: 'adult', emblem: true, mood: t > 3.2 ? 'big' : 'smile', aR: 2.5 + wave, aL: .2, blink: (t % 3.1) < .12, bob: Math.sin(t * 3) * 3 });
+    for (let i = 0; i < 8; i++) { const a = t * .5 + i * TAU / 8; sparkle(ctx, W / 2 + Math.cos(a) * 330, 1030 + Math.sin(a) * 330, 16 + 6 * Math.sin(t * 3 + i), '#fff', t); }
+  } });
+
+// 1  Birth
+scene({ dur: 10, age: '0岁', title: '出生 · 天生的小太阳', music: 'brightSoft', pill: 'rgba(214,92,110,0.9)', headStroke: '#C0526A',
+  subs: [[.4, 3.3, '0岁，TA 来到这个世界。'], [3.3, 6.5, '别的宝宝哭着出生，TA 却对每个人笑。'], [6.5, 9.8, '护士阿姨说：这孩子，真会暖人。']],
+  draw(ctx, t) {
+    sky(ctx, '#FFE3E3', '#FFF3EA');
+    // window
+    rr(ctx, 690, 560, 260, 300, 20); ctx.fillStyle = '#BFE3FF'; ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 14; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(820, 560); ctx.lineTo(820, 860); ctx.moveTo(690, 710); ctx.lineTo(950, 710); ctx.stroke();
+    cloud(ctx, 780, 650, .45, '#fff');
+    // wall decor
+    heart(ctx, 200, 650, 90, '#FFB3C1'); heart(ctx, 290, 600, 50, '#FFCAD4');
+    ground(ctx, 1360, '#F7D2C4', '#EFC0B0');
+    const sm = P(t, 1.6, 1.9);
+    glow(ctx, W / 2, 1000, 330 + Math.sin(t * 3) * 20, C.sun, .55 + .35 * sm);
+    // nurse & parent
+    const lean = Math.sin(t * 1.5) * .04;
+    person(ctx, { x: 240, y: 1390, s: 1.2, age: 'adult', shirt: '#7FD1C6', hairStyle: 'bun', hair: '#5B3A2E', mood: t > 2.2 ? 'big' : 'o', aR: .9, aL: .2, tilt: lean, look: 8 });
+    person(ctx, { x: 850, y: 1390, s: 1.2, age: 'adult', shirt: C.blue, hairStyle: 'short', mood: t > 2.4 ? 'joy' : 'o', aL: .9, aR: .2, tilt: -lean, look: -8 });
+    // crib
+    ctx.fillStyle = '#E9B98F'; rr(ctx, 360, 1120, 360, 220, 30); ctx.fill();
+    baby(ctx, W / 2, 1200, 1.02 + .03 * Math.sin(t * 4), { mood: t < 1.6 ? 'smile' : 'joy', wave: t * 6, blink: t < 1.0 });
+    ctx.fillStyle = '#F2C79E'; rr(ctx, 340, 1150, 400, 200, 34); ctx.fill();
+    ctx.strokeStyle = '#E3B086'; ctx.lineWidth = 8; for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(390 + i * 75, 1170); ctx.lineTo(390 + i * 75, 1330); ctx.stroke(); }
+    if (t > 1.6) for (let i = 0; i < 6; i++) { const a = i * TAU / 6 + t; sparkle(ctx, W / 2 + Math.cos(a) * 190, 990 + Math.sin(a) * 150, 14, '#FFF3B0', t * 2); }
+    floatingHearts(ctx, t, 260, 1020, 3.2, 6, '#FF7E9C', 120);
+    floatingHearts(ctx, t, 830, 1020, 3.5, 6, '#FF7E9C', 120);
+    bubble(ctx, 220, 900, '这孩子，真会暖人～', { size: 40, align: 'left', alpha: win(t, 6.6, 9.9, .3, .3), scale: E.back(P(t, 6.6, 7.0)) });
+  } });
+
+// 2  Kindergarten
+scene({ dur: 12, age: '5岁', title: '幼儿园 · 小小孩子王', music: 'bright', tag: [4.4, 'Fe 外倾情感 · 天生能感受别人的情绪'], pill: 'rgba(52,130,190,0.92)', headStroke: '#2F79B5',
+  subs: [[.4, 3.6, '5岁，幼儿园里有小朋友在哭。'], [3.6, 7.6, 'TA 第一个跑过去，把唯一的糖递了出去。'], [7.6, 11.8, '很快，TA 成了大家的“孩子王”。']],
+  draw(ctx, t) {
+    sky(ctx, '#8FD3FF', '#DDF3FF');
+    sunDisc(ctx, 170, 640, 70, t);
+    cloud(ctx, 760 + Math.sin(t * .3) * 20, 640, .7, '#fff'); cloud(ctx, 420 + t * 4, 760, .45, '#ffffffcc');
+    ground(ctx, 1300, '#8ED081', '#6DBB66');
+    // slide
+    ctx.strokeStyle = '#F2A541'; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(880, 1300); ctx.lineTo(880, 1000); ctx.lineTo(960, 1000); ctx.stroke();
+    ctx.strokeStyle = '#F07A6A'; ctx.lineWidth = 34; ctx.beginPath(); ctx.moveTo(960, 1000); ctx.quadraticCurveTo(1000, 1200, 1080, 1290); ctx.stroke();
+    const gather = E.inOut(P(t, 7.8, 9.2));
+    // background kids
+    const kids = [
+      { x0: 120, sh: C.purple, hs: 'twin', hair: '#3B2A22' },
+      { x0: 960, sh: C.orange, hs: 'spiky', hair: '#2F2A35' },
+      { x0: 330, sh: C.teal, hs: 'pony', hair: '#6B3E2B' },
+    ];
+    const ring = [[230, 1400], [850, 1400], [380, 1470]];
+    kids.forEach((k, i) => {
+      const bx = lerp(k.x0, ring[i][0], gather), by = lerp(1330 - i * 10, ring[i][1], gather);
+      const jump = gather > .9 ? Math.abs(Math.sin(t * 6 + i)) * 40 : 0;
+      person(ctx, { x: bx, y: by - jump, s: .95, age: 'kid', shirt: k.sh, hairStyle: k.hs, hair: k.hair, mood: gather > .5 ? 'joy' : 'smile', aL: gather > .9 ? 2.4 : .3, aR: gather > .9 ? 2.4 : .3, look: (W / 2 - bx) * .03 });
+    });
+    // crying kid
+    const cheered = P(t, 5.6, 5.8);
+    const cx = lerp(720, 700, gather), cy = lerp(1350, 1470, gather);
+    const cj = gather > .9 ? Math.abs(Math.sin(t * 6 + 2)) * 40 : 0;
+    const crier = person(ctx, { x: cx, y: cy - cj, s: 1, age: 'kid', shirt: C.pink, hairStyle: 'bun', hair: '#4A2E2A', mood: cheered ? (gather > .5 ? 'joy' : 'big') : 'sad', tear: cheered ? null : t * 1.4, aL: cheered ? (gather > .9 ? 2.4 : .5) : .1, aR: cheered ? (gather > .9 ? 2.4 : 1.1) : .1, look: -6 });
+    if (!cheered) { bubble(ctx, cx + 30, crier.top - 20, '呜呜…', { size: 38, alpha: win(t, .6, 5.6), align: 'left' }); }
+    // ENFJ kid walks in
+    const walkP = E.inOut(P(t, 1.2, 4.0));
+    const ex = lerp(-120, 540, walkP), ey = lerp(1350, 1400, gather);
+    const walking = t > 1.2 && t < 4.0;
+    const give = E.out(P(t, 4.3, 4.9)) * (1 - P(t, 6.4, 6.9));
+    const ej = gather > .9 ? Math.abs(Math.sin(t * 6 + 1)) * 50 : 0;
+    const me = person(ctx, { x: ex, y: ey - ej, s: 1.08, age: 'kid', emblem: true, walk: walking ? t * 9 : 0, bob: walking ? -Math.abs(Math.sin(t * 9)) * 8 : 0, aR: lerp(.3, 1.45, give) + (gather > .9 ? 1.1 : 0), aL: gather > .9 ? 2.4 : .3, mood: t > 5.6 ? 'big' : 'worried', look: 8, crown: E.back(P(t, 9.4, 10.1)) });
+    if (give > .02) { // candy
+      const [hx, hy] = me.hr; ctx.save(); ctx.translate(hx + 10, hy - 6); ctx.rotate(Math.sin(t * 4) * .2);
+      ctx.fillStyle = '#FF6F8E'; ctx.beginPath(); ctx.moveTo(-30, -14); ctx.lineTo(-48, 0); ctx.lineTo(-30, 14); ctx.fill(); ctx.beginPath(); ctx.moveTo(30, -14); ctx.lineTo(48, 0); ctx.lineTo(30, 14); ctx.fill();
+      circle(ctx, 0, 0, 22, '#FFB4C6'); ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(0, 0, 12, 0, Math.PI); ctx.stroke(); ctx.restore();
+      bubble(ctx, ex - 20, me.top - 20, '给你，别哭啦！', { size: 38, alpha: win(t, 4.4, 6.6), scale: E.back(P(t, 4.4, 4.8)), align: 'right', tailX: -40 });
+    }
+    floatingHearts(ctx, t, 640, 1080, 5.7, 5, '#FF7E9C', 120);
+    if (gather > .9) for (let i = 0; i < 10; i++) { const a = i * TAU / 10 + t * .8; sparkle(ctx, W / 2 + Math.cos(a) * 420, 1180 + Math.sin(a) * 120, 14, C.sun, t * 3); }
+  } });
+
+// 3  Primary school
+scene({ dur: 12, age: '10岁', title: '小学 · 全班的调解员', music: 'bright', pill: 'rgba(65,80,107,0.92)', headStroke: '#41506B',
+  subs: [[.4, 3.4, '10岁，TA 当上了班长。'], [3.4, 7.4, '同学吵架，TA 总是站在中间劝和。'], [7.4, 11.8, 'TA 最怕的，就是大家不开心。']],
+  draw(ctx, t) {
+    sky(ctx, '#FBEFD9', '#F6E2C2');
+    // blackboard
+    rr(ctx, 150, 520, 780, 380, 18); ctx.fillStyle = '#8B5E3C'; ctx.fill();
+    rr(ctx, 172, 542, 736, 336, 10); ctx.fillStyle = '#2F5D50'; ctx.fill();
+    text(ctx, '团结友爱  互相帮助', 540, 640, { size: 56, color: 'rgba(255,255,255,0.85)' });
+    text(ctx, '值日班长：TA', 540, 760, { size: 44, color: 'rgba(255,240,180,0.85)' });
+    ground(ctx, 1300, '#D9B38C', '#C99C70');
+    // desks
+    ctx.fillStyle = '#B07A4F'; [[60, 1460], [760, 1460]].forEach(([x, y]) => { rr(ctx, x, y - 70, 260, 34, 8); ctx.fill(); ctx.fillRect(x + 20, y - 40, 18, 60); ctx.fillRect(x + 222, y - 40, 18, 60); });
+    const calm = P(t, 6.0, 6.6);
+    const shake = (1 - calm) * (t > .8 ? Math.sin(t * 30) * 4 : 0);
+    const enter = E.inOut(P(t, 3.4, 5.0));
+    const push = E.out(P(t, 4.8, 5.6));
+    person(ctx, { x: lerp(330, 230, push) + shake, y: 1380, s: 1.05, age: 'kid', shirt: C.orange, hairStyle: 'spiky', mood: calm > .5 ? 'big' : 'angry', aR: calm > .5 ? .3 : 1.3, flip: false, look: 10 });
+    person(ctx, { x: lerp(750, 850, push) - shake, y: 1380, s: 1.05, age: 'kid', shirt: C.purple, hairStyle: 'twin', hair: '#3B2A22', mood: calm > .5 ? 'big' : 'angry', aL: calm > .5 ? .3 : 1.3, look: -10 });
+    // lightning
+    const la = (1 - calm) * P(t, .8, 1.2);
+    if (la > 0) {
+      ctx.save(); ctx.globalAlpha = la; ctx.strokeStyle = '#FF4B4B'; ctx.lineWidth = 12; ctx.lineJoin = 'miter';
+      const mx = 540, my = 1150 + Math.sin(t * 20) * 6; ctx.beginPath(); ctx.moveTo(mx - 140, my); ctx.lineTo(mx - 60, my - 40); ctx.lineTo(mx - 20, my + 20); ctx.lineTo(mx + 40, my - 30); ctx.lineTo(mx + 140, my); ctx.stroke(); ctx.restore();
+      bubble(ctx, 240, 1060, '哼！', { size: 46, alpha: la * win(t, 1, 5.6), fill: '#FFE1E1', color: '#C0392B' });
+      bubble(ctx, 840, 1060, '就是你的错！', { size: 40, alpha: la * win(t, 1.6, 5.6), fill: '#FFE1E1', color: '#C0392B' });
+    }
+    const me = person(ctx, { x: 540, y: lerp(1720, 1420, enter), s: 1.2, age: 'kid', emblem: true, badge: '班长', alpha: P(t, 3.3, 3.7), walk: enter > 0 && enter < 1 ? t * 9 : 0, aL: lerp(.3, 1.35, push), aR: lerp(.3, 1.35, push), mood: t > 6.4 && t < 7.6 ? 'big' : (t >= 7.6 ? 'worried' : 'smile'), sweat: t > 7.8 });
+    bubble(ctx, 540, me.top - 20, '大家别吵啦～', { size: 40, alpha: win(t, 5.0, 7.2), scale: E.back(P(t, 5.0, 5.4)) });
+    floatingHearts(ctx, t, 540, 1150, 6.3, 7, '#FF7E9C', 400);
+    if (t > 7.8) thought(ctx, 760, me.top - 60, '大家都要开开心心的…', { size: 36, alpha: win(t, 8.0, 11.8), dir: -1 });
+  } });
+
+// 4  Teen night
+scene({ dur: 14, age: '16岁', title: '青春期 · 所有人的树洞', music: 'soft', tag: [4.0, '情绪海绵 · 别人的情绪，TA 照单全收'], pill: 'rgba(84,72,150,0.92)', headStroke: '#3A3270',
+  subs: [[.4, 3.6, '16岁，TA 是所有人的“树洞”。'], [3.6, 8.2, '朋友的心事，TA 能陪着聊到凌晨两点。'], [8.2, 13.8, '可轮到自己难过时，TA 却不知道该找谁。']],
+  draw(ctx, t) {
+    const dim = P(t, 8.2, 9.2);
+    sky(ctx, mix('#2B2F5C', '#1C1D38', dim), mix('#4B4785', '#2C2A4E', dim));
+    // window
+    rr(ctx, 600, 560, 340, 380, 16); ctx.fillStyle = '#1A1C3A'; ctx.fill();
+    ctx.save(); ctx.beginPath(); ctx.rect(612, 572, 316, 356); ctx.clip(); stars(ctx, t, 30, 7, 1, 1000); circle(ctx, 840, 660, 50, '#FFF2C4'); circle(ctx, 862, 646, 46, '#1A1C3A'); ctx.restore();
+    ctx.strokeStyle = '#6D6AA8'; ctx.lineWidth = 14; rr(ctx, 600, 560, 340, 380, 16); ctx.stroke();
+    // clock
+    const hrs = ['22:00', '23:00', '00:00', '01:00', '02:00'][Math.min(4, Math.floor(P(t, 2, 8) * 4.99))];
+    rr(ctx, 150, 600, 250, 110, 20); ctx.fillStyle = '#15162B'; ctx.fill();
+    text(ctx, hrs, 275, 657, { size: 64, font: FB, weight: 900, color: '#FF6F8E' });
+    ground(ctx, 1320, '#3A3566', '#2A2650');
+    // bed
+    ctx.fillStyle = '#5E5AA0'; rr(ctx, 620, 1220, 440, 140, 30); ctx.fill(); ctx.fillStyle = '#ECE7FF'; rr(ctx, 860, 1180, 170, 70, 30); ctx.fill();
+    // lamp
+    ctx.fillStyle = '#FFE08A'; ctx.beginPath(); ctx.moveTo(90, 1060); ctx.lineTo(190, 1060); ctx.lineTo(165, 990); ctx.lineTo(115, 990); ctx.fill(); ctx.fillStyle = '#8A7D6A'; ctx.fillRect(134, 1060, 12, 200);
+    glow(ctx, 140, 1090, 260, '#FFD27A', .45 * (1 - dim * .6));
+    const me = person(ctx, { x: 430, y: 1390, s: 1.3, age: 'teen', emblem: true, aR: 2.1, aL: .2, mood: t < 8.2 ? (Math.floor(t * 2) % 3 === 0 ? 'smile' : 'worried') : 'sad', look: 12, blink: (t % 2.7) < .12, headBob: t < 8.2 ? Math.sin(t * 2.3) * 3 : 0 });
+    // phone
+    const [px, py] = me.hr; ctx.save(); ctx.translate(px - 4, py - 30); rr(ctx, -24, -40, 48, 80, 10); ctx.fillStyle = '#222'; ctx.fill(); rr(ctx, -18, -32, 36, 64, 6); ctx.fillStyle = '#BFE7FF'; ctx.fill(); ctx.restore();
+    glow(ctx, px, py - 30, 140, '#BFE7FF', .5 * (1 - dim));
+    // incoming messages
+    const msgs = ['在吗？', '我好难过…', '能陪我聊聊吗', '只有你懂我', '考砸了怎么办', '他是不是不理我了', '睡了吗？'];
+    const pos = [[640, 1080], [720, 1000], [180, 880], [720, 860], [200, 1180], [610, 780], [250, 1030]];
+    msgs.forEach((m, i) => { const st = 1.0 + i * .75; const a = win(t, st, 8.6, .25, .5); if (a <= 0) return; const sc = E.back(P(t, st, st + .35)); const left = pos[i][0] < 500;
+      ctx.save(); ctx.globalAlpha = a; circle(ctx, pos[i][0] + (left ? -28 : 0), pos[i][1] - 30, 0, '#fff'); ctx.restore();
+      bubble(ctx, pos[i][0], pos[i][1], m, { size: 36, alpha: a, scale: sc, align: left ? 'left' : 'left', fill: i % 2 ? '#FFFFFF' : '#DFF6E8' }); });
+    // own cloud
+    const ca = P(t, 9.0, 9.8);
+    if (ca > 0) {
+      ctx.save(); ctx.globalAlpha = ca; cloud(ctx, me.head[0], me.top - 120, .55, '#8C8FB0');
+      ctx.strokeStyle = 'rgba(160,190,255,0.8)'; ctx.lineWidth = 4; for (let i = 0; i < 6; i++) { const rx = me.head[0] - 50 + i * 20, ry = me.top - 80 + ((t * 300 + i * 40) % 90); ctx.beginPath(); ctx.moveTo(rx, ry); ctx.lineTo(rx - 4, ry + 18); ctx.stroke(); }
+      ctx.restore();
+      thought(ctx, 640, 900, '那我的烦恼，跟谁说呢？', { size: 40, alpha: win(t, 10.2, 13.9), fill: '#E9E6FF', dir: -1 });
+    }
+  } });
+
+// 5  College
+scene({ dur: 14, age: '20岁', title: '大学 · 社团里的发光体', music: 'full', tag: [8.6, '讨好倾向 · 很怕让任何人失望'], pill: 'rgba(170,70,140,0.92)', headStroke: '#8A3A78',
+  subs: [[.4, 3.8, '20岁，TA 在社团里发光发热。'], [3.8, 8.4, 'TA 能记住每个人的名字，让每个人都被看见。'], [8.4, 13.8, '只是，TA 还学不会说“不”。']],
+  draw(ctx, t) {
+    const dim = E.inOut(P(t, 8.2, 9.0));
+    sky(ctx, mix('#3A1F5C', '#3B3A52', dim), mix('#7A3C82', '#5B5A70', dim));
+    // stage lights
+    for (let i = 0; i < 3; i++) { const a = Math.sin(t * 1.2 + i * 2) * .25; ctx.save(); ctx.translate(200 + i * 340, 520); ctx.rotate(a); ctx.globalAlpha = .28 * (1 - dim); const g = ctx.createLinearGradient(0, 0, 0, 900); g.addColorStop(0, '#FFF3B0'); g.addColorStop(1, 'rgba(255,243,176,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(-30, 0); ctx.lineTo(30, 0); ctx.lineTo(220, 900); ctx.lineTo(-220, 900); ctx.fill(); ctx.restore(); }
+    // banner
+    ctx.save(); ctx.globalAlpha = 1 - dim * .6; rr(ctx, 170, 540, 740, 110, 16); ctx.fillStyle = '#E8473F'; ctx.fill(); text(ctx, '迎新晚会 · 欢迎你们！', 540, 597, { size: 56, color: '#FFE9A8' }); ctx.restore();
+    // stage floor
+    ground(ctx, 1240, mix('#5A2B48', '#4A4655', dim), mix('#3A1C30', '#363341', dim));
+    ctx.fillStyle = mix('#8E4A6E', '#5E5A68', dim); ctx.fillRect(0, 1240, W, 20);
+    const boxes = ['帮我个忙呗', '这个也交给你吧', '你最靠谱了', '拜托拜托～'];
+    const nb = boxes.filter((_, i) => t > 9.0 + i * .8).length;
+    const wob = nb > 2 ? Math.sin(t * 5) * .025 * nb : 0;
+    const me = person(ctx, { x: 540, y: 1300, s: 1.2, age: 'teen', emblem: true, mood: t < 8.4 ? 'big' : (nb > 3 ? 'worried' : 'smile'), aR: t < 8.4 ? 2.6 + Math.sin(t * 4) * .2 : (nb ? 2.75 : .3), aL: t < 8.4 ? .35 : (nb ? 2.75 : .3), sweat: nb > 2, tilt: wob, bob: t < 8.4 ? -Math.abs(Math.sin(t * 4)) * 8 : 0 });
+    if (t < 8.4) { // mic
+      const [hx, hy] = me.hl; ctx.save(); ctx.translate(hx + 14, hy - 30); ctx.rotate(.3); ctx.fillStyle = '#333'; rr(ctx, -8, 0, 16, 60, 6); ctx.fill(); circle(ctx, 0, -6, 20, '#777'); ctx.restore();
+      bubble(ctx, 540, me.top - 20, '欢迎大家！', { size: 44, alpha: win(t, .8, 3.6), scale: E.back(P(t, .8, 1.2)) });
+    }
+    // boxes stack
+    boxes.forEach((b, i) => { const st = 9.0 + i * .8; if (t < st) return; const drop = E.out(P(t, st, st + .35)); const by = lerp(-200, me.top - 36 - i * 74, drop);
+      ctx.save(); ctx.translate(540 + Math.sin(t * 5 + i) * 6 * (i + 1) * (nb > 2 ? 1 : 0), by); ctx.rotate(wob * (i + 1)); usedText.add(b);
+      ctx.font = `700 30px ${FB}`; const w = Math.max(240, ctx.measureText(b).width + 40); rr(ctx, -w / 2, -35, w, 70, 10); ctx.fillStyle = '#D9A066'; ctx.fill(); ctx.strokeStyle = '#B07A4F'; ctx.lineWidth = 4; ctx.stroke();
+      text(ctx, b, 0, 0, { size: 30, font: FB, weight: 700, color: '#4A2E14' }); ctx.restore(); });
+    if (t > 11.6) bubble(ctx, 830, 1000, '好…好呀！', { size: 42, alpha: win(t, 11.6, 13.9), scale: E.back(P(t, 11.6, 12)), align: 'left', tailX: 30, tailDir: -1 });
+    // crowd + names
+    const names = ['小林', '阿杰', '苏苏', '大熊', '朵朵', '老周'];
+    const cols = [C.blue, C.coral, C.teal, C.orange, C.pink, C.purple];
+    for (let i = 0; i < 6; i++) {
+      const x = 90 + i * 180, y = 1560 + (i % 2) * 40 + Math.sin(t * 4 + i) * 6 * (1 - dim);
+      ctx.save(); ctx.globalAlpha = 1 - dim * .5;
+      circle(ctx, x, y, 70, mix(cols[i], '#2A2238', .35)); circle(ctx, x, y - 110, 56, mix(cols[i], '#2A2238', .55));
+      if (i % 2 === 0) { ctx.strokeStyle = '#FFF07A'; ctx.lineWidth = 10; ctx.beginPath(); ctx.moveTo(x + 40, y - 40); ctx.lineTo(x + 70 + Math.sin(t * 6 + i) * 20, y - 140); ctx.stroke(); glow(ctx, x + 70 + Math.sin(t * 6 + i) * 20, y - 140, 40, '#FFF07A', .8); }
+      ctx.restore();
+      const st = 4.0 + i * .5; const na = win(t, st, 8.4, .3, .4);
+      if (na > 0) { ctx.save(); ctx.globalAlpha = na; const sc = E.back(P(t, st, st + .4)); ctx.translate(x, y - 210); ctx.scale(sc, sc); rr(ctx, -70, -30, 140, 60, 30); ctx.fillStyle = '#fff'; ctx.fill(); text(ctx, names[i], 0, 2, { size: 34, font: FB, weight: 700, color: C.ink }); ctx.restore();
+        ctx.save(); ctx.globalAlpha = na; sparkle(ctx, x + 70, y - 240, 14, C.sun, t * 3); ctx.restore(); }
+    }
+  } });
+
+// 6  Workplace
+scene({ dur: 16, age: '25岁', title: '职场 · 团队的粘合剂', music: 'work', tag: [12.0, 'Ti 劣势功能 · 陷入反复的自我怀疑'], pill: 'rgba(60,110,150,0.92)', headStroke: '#2F5F86',
+  subs: [[.4, 3.8, '25岁，TA 是团队里的“粘合剂”。'], [3.8, 8.2, '记得每个同事的生日，照顾每个人的情绪。'], [8.2, 11.9, '直到有一天，TA 掏心掏肺对待的人，转身走了。'], [11.9, 15.8, 'TA 第一次怀疑：我对别人这么好，值得吗？']],
+  draw(ctx, t) {
+    const dark = E.inOut(P(t, 8.2, 9.6));
+    sky(ctx, mix('#DCEBF5', '#5B6474', dark), mix('#F3F7FA', '#3F4552', dark));
+    // windows with city
+    for (let i = 0; i < 3; i++) { const x = 90 + i * 320; rr(ctx, x, 560, 260, 420, 12); ctx.fillStyle = mix('#A9D6F5', '#4C5768', dark); ctx.fill();
+      ctx.save(); ctx.beginPath(); ctx.rect(x, 560, 260, 420); ctx.clip(); const R = rng(10 + i); for (let b = 0; b < 4; b++) { const bh = 120 + R() * 220; ctx.fillStyle = mix('#7FA9C9', '#353C48', dark); ctx.fillRect(x + b * 66, 980 - bh, 56, bh); } ctx.restore(); }
+    ground(ctx, 1300, mix('#C8D3DC', '#3B404B', dark), mix('#AEBBC6', '#2D313A', dark));
+    // sticky notes
+    const notes = [['小王 3/12 生日', '#FFF07A'], ['李姐 咖啡少糖', '#FFC4D6'], ['阿杰 最近心情不好', '#BDF0D2']];
+    notes.forEach(([n, c], i) => { const a = win(t, 4.0 + i * .5, 8.6, .3, .5); if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; ctx.translate(200 + i * 340, 1070); ctx.rotate((i - 1) * .06); ctx.scale(E.back(P(t, 4 + i * .5, 4.4 + i * .5)), 1); rr(ctx, -140, -44, 280, 88, 6); ctx.fillStyle = c; ctx.fill(); text(ctx, n, 0, 2, { size: 30, font: FB, weight: 700, color: '#4A3B2A' }); ctx.restore(); });
+    // colleagues
+    const leave = E.inOut(P(t, 9.4, 11.4));
+    const cols = [[160, C.coral, 'bun'], [330, C.purple, 'spiky']];
+    cols.forEach(([x, c, hs], i) => person(ctx, { x, y: 1400, s: 1.05, age: 'adult', shirt: mix(c, '#6A6F7A', dark), hairStyle: hs, mood: dark > .5 ? 'smile' : 'big', aL: t < 8 ? 2.3 + Math.sin(t * 5 + i) * .2 : .2, aR: .2, alpha: 1 - dark * .55, look: 8 }));
+    // friend who leaves
+    const fx = lerp(860, 1250, leave);
+    person(ctx, { x: fx, y: 1400, s: 1.15, age: 'adult', shirt: mix(C.blue, '#6A6F7A', dark), hairStyle: 'short', hair: '#2F2A35', mood: dark > .3 ? 'angry' : 'big', flip: dark > .3, walk: leave > 0 && leave < 1 ? t * 8 : 0, look: dark > .3 ? 0 : -8, aR: t < 8 ? 2.2 : .2 });
+    // ENFJ with cake
+    const sad = P(t, 10.0, 10.3);
+    const me = person(ctx, { x: 600, y: 1420, s: 1.25, age: 'adult', emblem: true, emblemColor: mix(C.sun, '#9AA3AE', dark), mood: sad ? 'sad' : (dark > .3 ? 'o' : 'joy'), aL: t < 8.4 ? .9 : .15, aR: t < 8.4 ? .9 : .15, tear: t > 12 ? t * 1.2 : null, look: dark > .3 ? 10 : 6, shirt: mix(C.green, '#5E7A6C', dark * .7) });
+    if (t < 8.4) { // cake
+      const cx = 600, cy = me.hl[1] - 40; ctx.save(); ctx.globalAlpha = 1 - P(t, 8.0, 8.4);
+      rr(ctx, cx - 100, cy - 40, 200, 80, 14); ctx.fillStyle = '#FFE3EC'; ctx.fill(); rr(ctx, cx - 100, cy - 40, 200, 26, 12); ctx.fillStyle = '#FF8FB1'; ctx.fill();
+      for (let i = -1; i <= 1; i++) { ctx.fillStyle = '#7CC4FF'; ctx.fillRect(cx + i * 50 - 5, cy - 90, 10, 50); ctx.save(); ctx.translate(cx + i * 50, cy - 104); ctx.scale(1, 1 + Math.sin(t * 20 + i) * .15); ctx.fillStyle = '#FFB13B'; ctx.beginPath(); ctx.ellipse(0, 0, 9, 16, 0, 0, TAU); ctx.fill(); ctx.restore(); glow(ctx, cx + i * 50, cy - 104, 50, '#FFD27A', .6); }
+      ctx.restore();
+      bubble(ctx, 860, 980, '生日快乐！', { size: 46, alpha: win(t, .8, 4.2), scale: E.back(P(t, .8, 1.2)), fill: '#FFF4C2' });
+    }
+    confetti(ctx, t, 21, 1 - P(t, 7.5, 8.4));
+    // broken heart
+    const hb = P(t, 10.2, 10.6), split = E.out(P(t, 10.8, 11.6));
+    if (hb > 0) {
+      const hx = me.head[0], hy = me.top - 110; ctx.save(); ctx.globalAlpha = hb * (1 - P(t, 15.4, 15.9));
+      [-1, 1].forEach(sd => { ctx.save(); ctx.translate(hx + sd * split * 30, hy + split * 20); ctx.rotate(sd * split * .3); ctx.beginPath(); if (sd < 0) { ctx.rect(-80, -80, 80 - 2, 160); } else { ctx.rect(2, -80, 80, 160); } ctx.clip(); heart(ctx, 0, 0, 120, '#FF5C7A'); ctx.restore(); });
+      ctx.restore();
+    }
+    rain(ctx, t, P(t, 11.0, 12.0) * .9, 5);
+    // self doubt thoughts
+    const ds = ['是我不够好吗？', '我做错了什么？', '为什么会这样…'];
+    const dp = [[260, 820], [800, 760], [300, 1180]];
+    ds.forEach((d, i) => { const st = 12.4 + i * .7; bubble(ctx, dp[i][0], dp[i][1], d, { size: 36, alpha: win(t, st, 15.9, .4, .4) * .95, fill: '#D7DCE6', color: '#3B3F4A', tail: false, scale: E.out(P(t, st, st + .4)) }); });
+  } });
+
+// 7  Self care
+scene({ dur: 15, age: '28岁', title: '低谷 · 学会照顾自己', music: 'rise', pill: 'rgba(214,130,50,0.94)', headStroke: '#B5652A',
+  subs: [[.4, 3.6, '28岁，TA 学着一个人待一会儿。'], [3.6, 7.6, 'TA 终于明白：照顾好自己，不是自私。'], [7.6, 10.8, 'TA 开始学会，温柔地说“不”。'], [10.8, 14.8, '先点亮自己，才能照亮别人。']],
+  draw(ctx, t) {
+    const dawn = E.inOut(P(t, 3, 11));
+    sky(ctx, mix('#5C6577', '#FFB98A', dawn), mix('#7E8798', '#FFE6C2', dawn));
+    const sunY = lerp(1500, 1000, E.out(P(t, 9.5, 13.5)));
+    if (t > 9.5) sunDisc(ctx, W / 2, sunY, 150, t);
+    // hills
+    ctx.fillStyle = mix('#4E5A66', '#E99A6E', dawn); ctx.beginPath(); ctx.moveTo(0, 1180); ctx.quadraticCurveTo(300, 1000, 600, 1160); ctx.quadraticCurveTo(850, 1060, 1080, 1150); ctx.lineTo(1080, 1300); ctx.lineTo(0, 1300); ctx.fill();
+    // lake
+    ctx.fillStyle = mix('#5F6E80', '#FFCB9A', dawn); ctx.fillRect(0, 1180, W, 120);
+    ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 4; for (let i = 0; i < 6; i++) { const y = 1200 + i * 16; const x = (i * 170 + t * 30) % W; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 80, y); ctx.stroke(); }
+    ground(ctx, 1300, mix('#5E7A62', '#8ED081', dawn), mix('#4A6350', '#6DBB66', dawn));
+    rain(ctx, t, (1 - P(t, .5, 3.5)) * .7, 9);
+    // sprout
+    const sp = E.out(P(t, 6, 12));
+    if (sp > 0) { const sx = 790, sy = 1360; ctx.strokeStyle = '#3E9A55'; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(sx, sy - 120 * sp); ctx.stroke();
+      [-1, 1].forEach(sd => { ctx.save(); ctx.translate(sx, sy - 100 * sp); ctx.rotate(sd * .7); ctx.scale(sp, sp); ctx.fillStyle = '#5CC46F'; ctx.beginPath(); ctx.ellipse(sd * 34, 0, 36, 16, 0, 0, TAU); ctx.fill(); ctx.restore(); });
+      if (sp > .95) { const fl = E.back(P(t, 12, 12.6)); ctx.save(); ctx.translate(sx, sy - 130); ctx.scale(fl, fl); for (let i = 0; i < 5; i++) { ctx.rotate(TAU / 5); circle(ctx, 0, -22, 16, '#FFB3C1'); } circle(ctx, 0, 0, 14, C.sun); ctx.restore(); }
+    }
+    // ENFJ
+    const hug = P(t, 3.2, 3.8) * (1 - P(t, 10.4, 11.0));
+    const open = E.back(P(t, 10.8, 11.6));
+    const glowP = E.out(P(t, 4.5, 11));
+    const me = person(ctx, { x: 470, y: 1400, s: 1.35, age: 'adult', emblem: true, chestGlow: glowP * 1.4, mood: t < 3.2 ? 'sad' : (t < 10.8 ? 'calm' : 'joy'), aL: lerp(lerp(.12, -.95, hug), 2.4, open), aR: lerp(lerp(.12, -.95, hug), 2.4, open), tilt: hug * .08, look: t < 3 ? 8 : 0 });
+    if (glowP > .1) for (let i = 0; i < 6; i++) { const a = i * TAU / 6 + t * .6; sparkle(ctx, me.chest[0] + Math.cos(a) * 150 * glowP, me.chest[1] + Math.sin(a) * 150 * glowP, 12, '#FFF3B0', t * 2); }
+    // saying no gently
+    bubble(ctx, 600, me.top - 10, '不了，今天我想好好休息～', { size: 38, alpha: win(t, 7.8, 10.7), scale: E.back(P(t, 7.8, 8.2)), align: 'left', fill: '#FFF8E6' });
+    // phone ping showing request
+    if (t > 7.0 && t < 10.7) { ctx.save(); ctx.globalAlpha = win(t, 7.0, 10.7); bubble(ctx, 210, 900, '周末能来帮我加班吗？', { size: 32, fill: '#E3E6EC', tail: false, align: 'left', scale: .9 }); ctx.restore(); }
+    if (t > 11) { for (let i = 0; i < 14; i++) { const a = i * TAU / 14; const r2 = 300 + 40 * Math.sin(t * 2 + i); ctx.globalAlpha = P(t, 11, 12); sparkle(ctx, me.chest[0] + Math.cos(a) * r2, me.chest[1] + Math.sin(a) * r2 * .8, 12, '#FFFFFF', t); } ctx.globalAlpha = 1; }
+  } });
+
+// 8  Love
+scene({ dur: 12, age: '32岁', title: '爱情 · 遇见懂 TA 的人', music: 'warm', pill: 'rgba(232,103,154,0.94)', headStroke: '#C24C7E',
+  subs: [[.4, 3.8, '32岁，TA 遇见了一个懂 TA 的人。'], [3.8, 7.6, 'TA 记得对方随口说过的每一句话。'], [7.6, 11.8, '而这一次，终于也有人想照顾 TA 了。']],
+  draw(ctx, t) {
+    sky(ctx, '#FF9E8A', '#FFE0B5');
+    sunDisc(ctx, 540, 1150, 170, t, false);
+    tree(ctx, 120, 1330, 1.2, '#E58C7A'); tree(ctx, 980, 1330, 1.0, '#E89A84');
+    ground(ctx, 1300, '#B9D98A', '#94C46E');
+    const close = E.inOut(P(t, 7.6, 8.8));
+    const lx = lerp(330, 430, close), rx = lerp(750, 650, close);
+    const gift = E.out(P(t, 4.0, 4.6)) * (1 - P(t, 7.2, 7.6));
+    const happy = t > 4.8;
+    const me = person(ctx, { x: lx, y: 1400, s: 1.25, age: 'adult', emblem: true, mood: t > 4 ? 'big' : 'smile', aR: close > .5 ? lerp(.2, .62, close) : lerp(.2, 1.2, gift), aL: .2, look: 10 });
+    const pt = person(ctx, { x: rx, y: 1400, s: 1.22, age: 'adult', shirt: '#6FA8FF', hairStyle: 'pony', hair: '#3B2A22', longHair: false, mood: happy ? 'joy' : 'smile', aL: close > .5 ? lerp(.2, .62, close) : (happy ? 1.0 : .2), aR: .2, look: -10, tilt: happy ? -.06 : 0 });
+    bubble(ctx, 860, 1000, '好想吃栗子蛋糕呀～', { size: 36, alpha: win(t, .8, 3.7) * .9, align: 'right', tailX: -60, fill: '#FFFFFF', scale: E.back(P(t, .8, 1.2)) });
+    if (gift > .02) { const [hx, hy] = me.hr; ctx.save(); ctx.translate(hx + 30, hy - 30); rr(ctx, -50, -40, 100, 80, 10); ctx.fillStyle = '#FFF'; ctx.fill(); ctx.fillStyle = '#E8473F'; ctx.fillRect(-8, -40, 16, 80); ctx.fillRect(-50, -8, 100, 16); circle(ctx, -14, -46, 14, '#E8473F'); circle(ctx, 14, -46, 14, '#E8473F'); ctx.restore();
+      bubble(ctx, 260, 930, '你上次说想吃的！', { size: 38, alpha: win(t, 4.2, 7.4), scale: E.back(P(t, 4.2, 4.6)), align: 'left', tailX: 60 }); }
+    if (happy) floatingHearts(ctx, t, pt.head[0], pt.top, 4.9, 5, '#FF6F8E', 100);
+    const hp = E.elastic(P(t, 8.6, 9.6));
+    if (hp > 0) { heart(ctx, 540, 820 + Math.sin(t * 3) * 10, 200 * hp, '#FF5C7A'); }
+    bubble(ctx, 760, 1000, '这次，换我照顾你。', { size: 38, alpha: win(t, 9.0, 11.9), scale: E.back(P(t, 9, 9.4)), align: 'right', tailX: -40 });
+  } });
+
+// 9  Mentor
+scene({ dur: 13, age: '40岁', title: '中年 · 别人的引路人', music: 'warm', tag: [3.8, 'Ni 内倾直觉 · 一眼看见别人的潜力'], pill: 'rgba(46,140,120,0.94)', headStroke: '#22735F',
+  subs: [[.4, 3.8, '40岁，TA 成了别人的引路人。'], [3.8, 8.2, 'TA 最擅长的，是看见别人身上还没被发现的光。'], [8.2, 12.8, '然后，陪着 TA 们一点点亮起来。']],
+  draw(ctx, t) {
+    sky(ctx, '#A6E3D7', '#E9F8F1');
+    cloud(ctx, 250, 700, .6, '#fff'); cloud(ctx, 860, 820, .5, '#ffffffdd');
+    ground(ctx, 1300, '#9AD49A', '#79C17E');
+    const bigStar = E.back(P(t, 9.4, 10.2));
+    if (bigStar > 0) { glow(ctx, 860, 640, 240, C.sun, .7 * bigStar); sparkle(ctx, 860, 640, 80 * bigStar, '#FFE071', t * .5); }
+    const youths = [[300, C.coral, 'bun'], [470, C.blue, 'spiky'], [640, C.purple, 'twin'], [810, C.orange, 'pony']];
+    const walkP = E.inOut(P(t, 3.2, 9.2));
+    const mx = lerp(120, 960, walkP);
+    youths.forEach(([x, c, hs], i) => {
+      const lit = E.out(P(t, 4.5 + i * 1.2, 5.1 + i * 1.2));
+      if (lit > 0) glow(ctx, x, 1200, 180, C.sun, .5 * lit);
+      const jump = lit > .99 && t > 10 ? Math.abs(Math.sin(t * 5 + i)) * 26 : 0;
+      person(ctx, { x, y: 1420 - jump, s: .9, age: 'teen', shirt: mix('#A7ADB6', c, lit), hair: mix('#6B6F78', '#3B2A22', lit), hairStyle: hs, mood: lit > .5 ? (t > 10 ? 'joy' : 'big') : 'worried', aL: t > 10 ? 2.5 : .15, aR: t > 10 && i === 3 ? 2.0 : .15, look: t > 9.4 ? 10 : -6, tilt: t > 9.4 ? -.08 : 0 });
+      if (lit > 0) { ctx.save(); ctx.globalAlpha = lit; sparkle(ctx, x, 1080 - lit * 40, 22, '#FFE071', t * 2); ctx.restore(); }
+    });
+    const walking = t > 3.2 && t < 9.2;
+    const point = E.out(P(t, 9.4, 10));
+    person(ctx, { x: walking ? mx : (t >= 9.2 ? 960 : 120), y: 1460, s: 1.2, age: 'adult', emblem: true, glasses: true, hair: '#4A3428', walk: walking ? t * 7 : 0, mood: 'smile', aR: walking ? 1.4 : lerp(.2, 2.6, point), aL: .2, look: 8 });
+    bubble(ctx, 260, 980, '我觉得你可以的。', { size: 40, alpha: win(t, .8, 3.6), scale: E.back(P(t, .8, 1.2)), align: 'left', tailX: 40 });
+  } });
+
+// 10 Sixty
+scene({ dur: 12, age: '60岁', title: '退休 · 家里总是很热闹', music: 'full2', pill: 'rgba(196,120,40,0.94)', headStroke: '#9C5F1F',
+  subs: [[.4, 3.8, '60岁，TA 的家里总是很热闹。'], [3.8, 7.8, '当年被 TA 帮助过的人，一个个回来看 TA。'], [7.8, 11.8, '“是您，让我相信了自己。”']],
+  draw(ctx, t) {
+    sky(ctx, '#FFE7B8', '#FFF5E1');
+    // wall photos
+    const frames = [[200, 650, C.coral], [420, 610, C.blue], [640, 660, C.green], [860, 620, C.purple]];
+    frames.forEach(([x, y, c], i) => { ctx.save(); ctx.translate(x, y); ctx.rotate((i % 2 ? 1 : -1) * .05); rr(ctx, -80, -70, 160, 140, 8); ctx.fillStyle = '#8B5E3C'; ctx.fill(); rr(ctx, -66, -56, 132, 112, 4); ctx.fillStyle = '#FFF8EA'; ctx.fill(); circle(ctx, -20, 0, 22, c); circle(ctx, 24, 6, 18, C.green); ctx.restore(); });
+    // door
+    rr(ctx, 70, 860, 240, 460, [120, 120, 0, 0]); ctx.fillStyle = '#B5784A'; ctx.fill(); circle(ctx, 270, 1110, 12, C.sun);
+    ground(ctx, 1320, '#E8C79E', '#D9AF80');
+    rr(ctx, 380, 1250, 340, 30, 10); ctx.fillStyle = '#9C6A44'; ctx.fill();
+    const me = person(ctx, { x: 250, y: 1440, s: 1.2, age: 'old', emblem: true, hair: '#E4E4E4', hairStyle: 'old', glasses: true, mood: t > 1.5 ? 'big' : 'smile', aR: t > 1.5 && t < 4 ? 2.4 + Math.sin(t * 6) * .3 : .3, aL: .2, hunch: 6, look: 10 });
+    const guests = [[C.blue, 'short', '老师！还记得我吗？'], [C.coral, 'bun', '谢谢您当年拉了我一把'], [C.teal, 'spiky', '是您，让我相信了自己']];
+    guests.forEach(([c, hs, msg], i) => {
+      const st = 1.0 + i * 2.6; const p = E.inOut(P(t, st, st + 1.6)); if (p <= 0) return;
+      const x = lerp(1250, 520 + i * 190, p); const walking = p > 0 && p < 1;
+      const g = person(ctx, { x, y: 1440 + (i % 2) * 20, s: 1.12, age: 'adult', shirt: c, hairStyle: hs, hair: '#3B2A22', flip: false, walk: walking ? t * 8 : 0, mood: 'big', aL: p >= 1 ? 1.2 : .3, look: -10 });
+      if (p >= 1) { const [hx, hy] = g.hl; if (i === 0) { ctx.save(); ctx.translate(hx - 20, hy - 30); for (let k = 0; k < 3; k++) circle(ctx, -14 + k * 14, -18, 14, ['#FF6F8E', '#FFB13B', '#B07CE8'][k]); ctx.strokeStyle = '#3E9A55'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(0, -10); ctx.lineTo(0, 30); ctx.stroke(); ctx.restore(); }
+        else if (i === 1) { ctx.save(); ctx.translate(hx - 30, hy - 30); rr(ctx, -34, -28, 68, 56, 6); ctx.fillStyle = '#7CC4FF'; ctx.fill(); ctx.fillStyle = '#fff'; ctx.fillRect(-5, -28, 10, 56); ctx.restore(); }
+        else { ctx.save(); ctx.translate(hx - 30, hy - 26); rr(ctx, -36, -24, 72, 48, 4); ctx.fillStyle = '#FFF'; ctx.fill(); ctx.strokeStyle = '#E8679A'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-36, -24); ctx.lineTo(0, 4); ctx.lineTo(36, -24); ctx.stroke(); heart(ctx, 0, 4, 18, '#FF5C7A'); ctx.restore(); }
+      }
+      const yb = [880, 1000, 900][i];
+      bubble(ctx, [700, 760, 640][i], yb, msg, { size: 36, alpha: win(t, st + 1.5, Math.min(11.9, st + 4.4), .3, .4), scale: E.back(P(t, st + 1.5, st + 1.9)), align: 'right', tailX: -30, fill: i === 2 ? '#FFF2C4' : '#fff' });
+    });
+    floatingHearts(ctx, t, me.head[0], me.top, 8.0, 7, '#FF6F8E', 140);
+  } });
+
+// 11 Eighty
+scene({ dur: 15, age: '80岁', title: '晚年 · 满天星光', music: 'night', pill: 'rgba(60,60,130,0.94)', headStroke: '#2D2C6B',
+  subs: [[.4, 4.2, '80岁，TA 坐在摇椅上，看着满天星光。'], [4.2, 8.8, 'TA 这一生，没有成为最耀眼的那颗星，'], [8.8, 14.8, '却点亮了身边的每一颗。']],
+  draw(ctx, t) {
+    sky(ctx, '#141638', '#3D2F6B');
+    stars(ctx, t, 90, 41, .8, 1250);
+    // constellation stars become a heart
+    const N = 28, R = rng(77), form = E.inOut(P(t, 8.8, 11.5));
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      const rx = 120 + R() * 840, ry = 560 + R() * 560;
+      const a = i / N * TAU; const hx = 16 * Math.pow(Math.sin(a), 3), hy = -(13 * Math.cos(a) - 5 * Math.cos(2 * a) - 2 * Math.cos(3 * a) - Math.cos(4 * a));
+      const x = lerp(rx, 540 + hx * 22, form), y = lerp(ry, 820 + hy * 22, form);
+      const lit = P(t, 2 + i * .2, 2.4 + i * .2);
+      pts.push([x, y, lit]);
+    }
+    const lines = P(t, 5, 8);
+    ctx.strokeStyle = `rgba(255,236,170,${.35 * lines})`; ctx.lineWidth = 3;
+    if (lines > 0) { ctx.beginPath(); pts.forEach(([x, y], i) => { const [nx, ny] = pts[(i + 1) % N]; if (i / N < lines || form > 0) { ctx.moveTo(x, y); ctx.lineTo(nx, ny); } }); ctx.stroke(); }
+    pts.forEach(([x, y, lit], i) => { if (lit <= 0) return; glow(ctx, x, y, 40, '#FFE59A', lit * .8); sparkle(ctx, x, y, (10 + 4 * Math.sin(t * 3 + i)) * lit, '#FFF6D0', t); });
+    if (form > .95) glow(ctx, 540, 820, 420, '#FF9AB5', .25 * P(t, 11.5, 13));
+    // hills
+    ctx.fillStyle = '#231F45'; ctx.beginPath(); ctx.moveTo(0, 1260); ctx.quadraticCurveTo(300, 1160, 560, 1250); ctx.quadraticCurveTo(820, 1180, 1080, 1240); ctx.lineTo(1080, H); ctx.lineTo(0, H); ctx.fill();
+    ground(ctx, 1360, '#2E2952', '#221E40');
+    // rocking chair + old ENFJ
+    const rock = Math.sin(t * 1.4) * .06;
+    ctx.save(); ctx.translate(540, 1440); ctx.rotate(rock); ctx.translate(-540, -1440);
+    ctx.fillStyle = '#8A5A3C'; rr(ctx, 440, 1000, 200, 300, 40); ctx.fill();
+    ctx.strokeStyle = '#6E452C'; ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(400, 1420); ctx.quadraticCurveTo(540, 1470, 680, 1420); ctx.stroke();
+    ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(460, 1300); ctx.lineTo(450, 1440); ctx.moveTo(620, 1300); ctx.lineTo(630, 1440); ctx.stroke();
+    // blanket-ish seat
+    const eyes = t > 12.2;
+    person(ctx, { x: 540, y: 1330, s: 1.2, age: 'old', sit: true, emblem: true, hair: '#ECECEC', hairStyle: 'old', glasses: true, mood: eyes ? 'calm' : 'smile', aL: .45, aR: .45, look: 0, tilt: -.05, noShadow: true, chestGlow: .4 + .3 * Math.sin(t * 2) });
+    ctx.fillStyle = '#7A6BC2'; rr(ctx, 420, 1290, 240, 70, 24); ctx.fill();
+    ctx.restore();
+    ctx.fillStyle = '#6E452C'; rr(ctx, 360, 1300, 50, 12, 6);
+  } });
+
+// 12 Ending
+scene({ dur: 10, music: 'end', subs: [[.6, 3.4, '致每一个 ENFJ：'], [3.4, 6.4, '你照亮了很多人，'], [6.4, 9.6, '也别忘了，你同样值得被温柔以待。']],
+  draw(ctx, t) {
+    sky(ctx, '#2E9C6A', '#7FD1A6');
+    sunDisc(ctx, W / 2, 1050, 200, t);
+    const tp = E.back(P(t, .2, 1));
+    ctx.save(); ctx.translate(W / 2, 330); ctx.scale(tp, tp);
+    mixedTitle(ctx, 'ENFJ ', '· 主人公', 0, 0, 120, C.greenD); ctx.restore();
+    const kws = ['温暖', '共情力', '理想主义', '天生的引导者', '有点爱操心', '总在照顾别人'];
+    kws.forEach((k, i) => { const p = E.back(P(t, 1 + i * .25, 1.4 + i * .25)); if (p <= 0) return; const col = i % 3, row = Math.floor(i / 3); const x = W / 2 + (col - 1) * 320, y = 520 + row * 100;
+      ctx.save(); ctx.translate(x, y); ctx.scale(p, p); usedText.add(k); ctx.font = `700 38px ${FB}`; const w = ctx.measureText(k).width + 50; rr(ctx, -w / 2, -36, w, 72, 36); ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.fill(); text(ctx, k, 0, 2, { size: 38, font: FB, weight: 700, color: C.greenD }); ctx.restore(); });
+    const people = [[200, C.coral, 'bun', 'adult'], [360, C.blue, 'spiky', 'teen'], [720, C.purple, 'twin', 'kid'], [880, C.orange, 'pony', 'adult']];
+    people.forEach(([x, c, hs, ag], i) => { const p = E.out(P(t, 2.4 + i * .2, 3.2 + i * .2)); person(ctx, { x, y: 1420 + (1 - p) * 300, s: 1, age: ag, shirt: c, hairStyle: hs, hair: '#3B2A22', mood: 'joy', aL: 2.4 + Math.sin(t * 4 + i) * .2, aR: .3, alpha: p }); });
+    person(ctx, { x: W / 2, y: 1440, s: 1.45, age: 'adult', emblem: true, chestGlow: 1, mood: 'joy', aL: 2.5 + Math.sin(t * 3) * .15, aR: 2.5 - Math.sin(t * 3) * .15 });
+    floatingHearts(ctx, t, W / 2, 1000, 4.0, 10, '#FFE071', 500);
+    const end = P(t, 8.6, 10);
+    if (end > 0) { ctx.fillStyle = `rgba(20,16,26,${end})`; ctx.fillRect(0, 0, W, H); }
+  } });
+
+let acc = 0; S.forEach((s, i) => { s.start = acc; s.idx = i; acc += s.dur; });
+const DURATION = acc;
+const AGES = S.map(s => s.age ? parseInt(s.age) : null);
+function sceneAt(t) { for (let i = S.length - 1; i >= 0; i--) if (t >= S[i].start) return S[i]; return S[0]; }
+function ageAt(t) { const sc = sceneAt(t); if (!sc.age) return null; const prev = S[sc.idx - 1]; const a0 = prev && prev.age ? parseInt(prev.age) : 0; return lerp(a0, parseInt(sc.age), E.inOut(P(t - sc.start, .1, 1.2))); }
+function sceneAlphaForBar(t) { const sc = sceneAt(t); if (!sc.age) return 0; const lt = t - sc.start; const prevHas = S[sc.idx - 1] && S[sc.idx - 1].age; const nextHas = S[sc.idx + 1] && S[sc.idx + 1].age; return Math.min(prevHas ? 1 : P(lt, .2, .6), nextHas ? 1 : 1 - P(lt, sc.dur - .5, sc.dur)); }
+
+/* ---------- master render ---------- */
+function renderAt(ctx, t) {
+  t = clamp(t, 0, DURATION - 1e-4);
+  const sc = sceneAt(t), lt = t - sc.start;
+  ctx.save();
+  ctx.clearRect(0, 0, W, H);
+  sc.draw(ctx, lt);
+  ctx.globalAlpha = 1;
+  header(ctx, sc, lt);
+  tag(ctx, sc, lt);
+  lifeBar(ctx, t);
+  subtitles(ctx, sc, lt);
+  // scene transitions: dip through a deep plum
+  const fin = sc.idx === 0 ? 0 : 1 - P(lt, 0, .35);
+  const fout = sc.idx === S.length - 1 ? 0 : P(lt, sc.dur - .3, sc.dur);
+  const f = Math.max(fin, fout);
+  if (f > 0) { ctx.globalAlpha = f; ctx.fillStyle = '#1D1826'; ctx.fillRect(0, 0, W, H); }
+  ctx.restore();
+}
+
+/* ---------- music (synthesised with Web Audio) ---------- */
+const BPM = 80, BEAT = 60 / BPM, BAR = BEAT * 4;
+const mf = m => 440 * Math.pow(2, (m - 69) / 12);
+const CH = { C: [48, 'M'], G: [43, 'M'], Am: [45, 'm'], F: [41, 'M'], Em: [40, 'm'], Dm: [38, 'm'], E: [40, 'M'], Bb: [46, 'M'] };
+const PROG = {
+  bright: ['C', 'G', 'Am', 'F'], minor: ['Am', 'F', 'Dm', 'E'], rise: ['F', 'G', 'Em', 'Am', 'F', 'G', 'C', 'C'],
+  warm: ['F', 'G', 'Em', 'Am', 'Dm', 'G', 'C', 'C'], night: ['F', 'C', 'Dm', 'G'], end: ['F', 'G', 'Am', 'F', 'F', 'G', 'C', 'C'],
+};
+const MOOD = {
+  intro:      { prog: 'bright', pad: .9, arp: 1, bass: 0, mel: 0, bell: 1, perc: 0, v: .5 },
+  brightSoft: { prog: 'bright', pad: .7, arp: 2, bass: 1, mel: 0, bell: 1, perc: 0, v: .55 },
+  bright:     { prog: 'bright', pad: .6, arp: 2, bass: 1, mel: 1, bell: 0, perc: 1, v: .62 },
+  soft:       { prog: 'bright', pad: .9, arp: 1, bass: 1, mel: 0, bell: 1, perc: 0, v: .45 },
+  full:       { prog: 'bright', pad: .6, arp: 2, bass: 1, mel: 1, bell: 0, perc: 2, v: .66 },
+  work:       { prog: 'bright', pad: .6, arp: 2, bass: 1, mel: 1, bell: 0, perc: 1, v: .6 },
+  minor:      { prog: 'minor', pad: 1, arp: 1, bass: 1, mel: 0, bell: 0, perc: 0, v: .45 },
+  rise:       { prog: 'rise', pad: .9, arp: 2, bass: 1, mel: 0, bell: 1, perc: 0, v: .55 },
+  warm:       { prog: 'warm', pad: .7, arp: 2, bass: 1, mel: 1, bell: 0, perc: 1, v: .62 },
+  full2:      { prog: 'warm', pad: .6, arp: 2, bass: 1, mel: 1, bell: 0, perc: 2, v: .66 },
+  night:      { prog: 'night', pad: 1, arp: 1, bass: 1, mel: 0, bell: 1, perc: 0, v: .5 },
+  end:        { prog: 'end', pad: .9, arp: 2, bass: 1, mel: 1, bell: 1, perc: 1, v: .62 },
+};
+function moodAt(t) {
+  const sc = sceneAt(t), lt = t - sc.start;
+  if (sc.music === 'work' && lt > 8.0) return 'minor';
+  if (sc.music === 'rise' && lt < 6.5) return 'minor';
+  return sc.music;
+}
+function chordNotes(name) { const [root, q] = CH[name]; return [root, root + (q === 'M' ? 4 : 3), root + 7]; }
+
+function buildMusic(ac) {
+  const R = rng(2024);
+  const master = ac.createGain(); master.gain.value = 1.6;
+  const comp = ac.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 3;
+  master.connect(comp); comp.connect(ac.destination);
+  const rev = ac.createConvolver(); const len = Math.floor(ac.sampleRate * 2.6); const ib = ac.createBuffer(2, len, ac.sampleRate);
+  for (let c = 0; c < 2; c++) { const d = ib.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (R() * 2 - 1) * Math.pow(1 - i / len, 2.4); }
+  rev.buffer = ib; const wet = ac.createGain(); wet.gain.value = .32; rev.connect(wet); wet.connect(master);
+  const bus = ac.createGain(); bus.connect(master); bus.connect(rev);
+  const noise = ac.createBuffer(1, ac.sampleRate, ac.sampleRate); { const d = noise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = R() * 2 - 1; }
+  master.gain.setValueAtTime(1.6, Math.max(0, DURATION - 2.5)); master.gain.linearRampToValueAtTime(0, DURATION);
+
+  function tone(t0, freq, dur, vel, kind, pan = 0) {
+    if (t0 >= DURATION) return;
+    const g = ac.createGain(), p = ac.createStereoPanner ? ac.createStereoPanner() : null;
+    if (p) { p.pan.value = pan; g.connect(p); p.connect(bus); } else g.connect(bus);
+    const parts = kind === 'piano' ? [[1, 1], [2, .4], [3, .15], [4, .06]] : kind === 'bell' ? [[1, 1], [2.76, .25], [5.4, .08]] : kind === 'bass' ? [[1, 1], [2, .25]] : [[1, 1], [1.005, .8], [2, .15]];
+    const atk = kind === 'pad' ? .9 : kind === 'bass' ? .02 : .006;
+    g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(vel, t0 + atk);
+    if (kind === 'pad') { g.gain.setValueAtTime(vel, t0 + dur - .6); g.gain.linearRampToValueAtTime(0, t0 + dur + .4); }
+    else g.gain.exponentialRampToValueAtTime(.0005, t0 + dur);
+    parts.forEach(([mul, amp]) => { const o = ac.createOscillator(); o.type = kind === 'pad' ? 'triangle' : 'sine'; o.frequency.value = freq * mul; const og = ac.createGain(); og.gain.value = amp; o.connect(og); og.connect(g); o.start(t0); o.stop(t0 + dur + .5); });
+  }
+  function hat(t0, vel) { const s = ac.createBufferSource(); s.buffer = noise; const f = ac.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 7000; const g = ac.createGain(); g.gain.setValueAtTime(vel, t0); g.gain.exponentialRampToValueAtTime(.0005, t0 + .08); s.connect(f); f.connect(g); g.connect(master); s.start(t0); s.stop(t0 + .1); }
+  function kick(t0, vel) { const o = ac.createOscillator(); const g = ac.createGain(); o.frequency.setValueAtTime(120, t0); o.frequency.exponentialRampToValueAtTime(45, t0 + .18); g.gain.setValueAtTime(vel, t0); g.gain.exponentialRampToValueAtTime(.0005, t0 + .35); o.connect(g); g.connect(master); o.start(t0); o.stop(t0 + .4); }
+
+  let lastMood = null, idx = 0, melNote = 72;
+  const scale = [60, 62, 64, 67, 69, 72, 74, 76, 79, 81];
+  for (let tb = 0; tb < DURATION; tb += BAR) {
+    const mood = moodAt(tb + .01), M = MOOD[mood];
+    if (mood !== lastMood) { idx = 0; lastMood = mood; }
+    const prog = PROG[M.prog]; const name = prog[idx % prog.length]; idx++;
+    const notes = chordNotes(name), v = M.v;
+    const isLast = tb + BAR >= DURATION - .5;
+    // pad
+    notes.forEach((n, i) => tone(tb, mf(n + 12), BAR + .2, .05 * M.pad * v, 'pad', (i - 1) * .3));
+    // bass
+    if (M.bass) { tone(tb, mf(notes[0] - 12), BEAT * 2.2, .32 * v, 'bass'); tone(tb + BEAT * 2, mf(notes[0] - 12 + (M.perc === 2 ? 7 : 0)), BEAT * 2, .24 * v, 'bass'); }
+    // arpeggio
+    const arp = [notes[0] + 12, notes[2] + 12, notes[1] + 24, notes[2] + 12, notes[0] + 24, notes[2] + 12, notes[1] + 24, notes[2] + 24];
+    const stepN = M.arp === 2 ? 8 : 4;
+    for (let k = 0; k < stepN; k++) { const tt = tb + k * BAR / stepN; tone(tt, mf(arp[(k * (8 / stepN)) % 8]), M.arp === 2 ? 1.2 : 2, (k % 2 ? .11 : .15) * v, 'piano', ((k % 4) - 1.5) * .2); }
+    // melody
+    if (M.mel || M.bell) {
+      const pats = [[[0, 1.5], [1.5, .5], [2, 2]], [[0, 1], [1, 1], [2, 1], [3, 1]], [[0, 2], [2.5, .5], [3, 1]], [[0, .5], [.5, .5], [1, 1], [2, 2]]];
+      const pat = M.mel ? pats[Math.floor(R() * pats.length)] : [[0, 2], [2, 2]];
+      pat.forEach(([b, d], j) => {
+        const chordTones = scale.filter(s => notes.some(n => (s - n) % 12 === 0));
+        const pool = j === 0 ? chordTones : scale;
+        let best = pool[0], bd = 99; pool.forEach(s => { const dd = Math.abs(s - melNote) + R() * 4; if (dd < bd && s !== melNote) { bd = dd; best = s; } });
+        melNote = best;
+        if (M.mel) tone(tb + b * BEAT, mf(melNote + 12), d * BEAT + .6, .13 * v, 'piano', .15);
+        if (M.bell && (j === 0 || R() > .5)) tone(tb + b * BEAT, mf(melNote + 12), 2.2, .06 * v, 'bell', -.2);
+      });
+    }
+    // percussion
+    if (M.perc) { for (let k = 0; k < 8; k++) hat(tb + k * BEAT / 2, (k % 2 ? .05 : .08) * v); if (M.perc === 2) { kick(tb, .5 * v); kick(tb + BEAT * 2, .45 * v); } }
+    if (isLast) { [48, 55, 60, 64, 67, 72].forEach((n, i) => tone(tb + BAR, mf(n), 3, .08, 'piano', (i - 2.5) * .15)); }
+  }
+  // chapter chimes
+  S.forEach(sc => { if (!sc.age) return; [79, 84, 88].forEach((n, i) => tone(sc.start + .15 + i * .09, mf(n), 1.6, .07, 'bell', .3)); });
+}
+async function renderMusic(sampleRate = 44100) {
+  const OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+  const oac = new OAC(2, Math.ceil(DURATION * sampleRate), sampleRate);
+  buildMusic(oac);
+  return oac.startRendering();
+}
+function toWav(buf) {
+  const ch = buf.numberOfChannels, len = buf.length, sr = buf.sampleRate;
+  const out = new DataView(new ArrayBuffer(44 + len * ch * 2));
+  const ws = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
+  ws(0, 'RIFF'); out.setUint32(4, 36 + len * ch * 2, true); ws(8, 'WAVE'); ws(12, 'fmt '); out.setUint32(16, 16, true); out.setUint16(20, 1, true); out.setUint16(22, ch, true);
+  out.setUint32(24, sr, true); out.setUint32(28, sr * ch * 2, true); out.setUint16(32, ch * 2, true); out.setUint16(34, 16, true); ws(36, 'data'); out.setUint32(40, len * ch * 2, true);
+  const data = []; for (let c = 0; c < ch; c++) data.push(buf.getChannelData(c));
+  let o = 44; for (let i = 0; i < len; i++) for (let c = 0; c < ch; c++) { const v = clamp(data[c][i], -1, 1); out.setInt16(o, v < 0 ? v * 0x8000 : v * 0x7FFF, true); o += 2; }
+  return out.buffer;
+}
+
+/* ---------- fonts: pre-pass collects every string, then loads only the glyph subsets needed ---------- */
+async function loadFonts() {
+  const off = document.createElement('canvas'); off.width = 108; off.height = 192; const octx = off.getContext('2d'); octx.scale(.1, .1);
+  for (let t = 0; t < DURATION; t += .25) renderAt(octx, t);
+  const all = [...usedText].join('') + '0123456789';
+  const uniq = [...new Set(all)].join('');
+  try {
+    await Promise.all([document.fonts.load(`40px "ZCOOL KuaiLe"`, uniq), document.fonts.load(`700 40px "Noto Sans SC"`, uniq), document.fonts.load(`500 40px "Noto Sans SC"`, uniq), document.fonts.load(`900 40px "Noto Sans SC"`, uniq)]);
+  } catch (e) { /* fall back to system fonts */ }
+}
+
+/* ---------- player ---------- */
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+function sizeCanvas() {
+  if (EXPORT) { cv.width = W; cv.height = H; ctx.setTransform(1, 0, 0, 1, 0, 0); return; }
+  const r = cv.getBoundingClientRect(); const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const w = Math.max(270, Math.min(W, Math.round(r.width * dpr))); cv.width = w; cv.height = Math.round(w * 16 / 9);
+  ctx.setTransform(w / W, 0, 0, w / W, 0, 0);
+}
+sizeCanvas();
+
+if (EXPORT) {
+  const ready = loadFonts();
+  let wav = null;
+  window.ENFJ = {
+    W, H, DURATION, ready,
+    frame(t, q = .92) { renderAt(ctx, t); return cv.toDataURL('image/jpeg', q); },
+    async audio() { const b = await renderMusic(); wav = new Uint8Array(toWav(b)); return wav.length; },
+    chunk(off, n) { let s = ''; const sub = wav.subarray(off, off + n); for (let i = 0; i < sub.length; i += 0x8000) s += String.fromCharCode.apply(null, sub.subarray(i, i + 0x8000)); return btoa(s); },
+  };
+  return;
+}
+
+const POSTER_T = 3.6;
+let playing = false, muted = false, cur = POSTER_T, actx = null, buffer = null, src = null, gainNode = null, startedAt = 0, startOff = 0, lastPerf = 0;
+const $ = id => document.getElementById(id);
+const playBtn = $('playBtn'), bigPlay = $('bigPlay'), scrub = $('scrub'), timeEl = $('time'), muteBtn = $('muteBtn'), loading = $('loading');
+const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+let fontsReady = false;
+loadFonts().then(() => { fontsReady = true; draw(); });
+
+// chapter rail
+const rail = $('rail');
+S.forEach(sc => { if (!sc.age) return; const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button'; b.id = 'ch' + sc.idx;
+  b.innerHTML = `<span class="age">${sc.age}</span><span class="nm">${sc.title.split(' · ')[1]}</span>`; b.addEventListener('click', () => { seek(sc.start + .05); if (!playing) play(); }); li.appendChild(b); rail.appendChild(li); });
+
+async function ensureAudio() {
+  if (buffer || !(window.AudioContext || window.webkitAudioContext)) return;
+  loading.hidden = false;
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    buffer = await renderMusic(actx.sampleRate);
+    gainNode = actx.createGain(); gainNode.gain.value = muted ? 0 : 1; gainNode.connect(actx.destination);
+  } catch (e) { buffer = null; }
+  loading.hidden = true;
+}
+function startSource() {
+  if (!buffer || !actx) return;
+  stopSource(); src = actx.createBufferSource(); src.buffer = buffer; src.connect(gainNode); src.start(0, clamp(cur, 0, DURATION - .01)); startedAt = actx.currentTime; startOff = cur;
+}
+function stopSource() { if (src) { try { src.stop(); } catch (e) {} src.disconnect(); src = null; } }
+async function play() {
+  if (cur >= DURATION - .05 || cur === POSTER_T && !playedOnce) cur = 0;
+  playedOnce = true;
+  bigPlay.hidden = true;
+  if (!actx && (window.AudioContext || window.webkitAudioContext)) actx = new (window.AudioContext || window.webkitAudioContext)();
+  if (actx && actx.state === 'suspended') await actx.resume();
+  await ensureAudio();
+  playing = true; playBtn.textContent = '暂停'; startSource(); lastPerf = performance.now(); requestAnimationFrame(loop);
+}
+let playedOnce = false;
+function pause() { playing = false; playBtn.textContent = '播放'; stopSource(); }
+function seek(t) { cur = clamp(t, 0, DURATION); playedOnce = true; bigPlay.hidden = true; if (playing) startSource(); draw(); }
+function loop(now) {
+  if (!playing) return;
+  if (src && actx) cur = startOff + (actx.currentTime - startedAt); else cur += (now - lastPerf) / 1000;
+  lastPerf = now;
+  if (cur >= DURATION) { cur = DURATION; pause(); bigPlay.hidden = false; }
+  draw(); if (playing) requestAnimationFrame(loop);
+}
+function draw() {
+  renderAt(ctx, cur);
+  timeEl.textContent = `${fmt(cur)} / ${fmt(DURATION)}`;
+  if (document.activeElement !== scrub) scrub.value = Math.round(cur / DURATION * 1000);
+  const sc = sceneAt(cur); rail.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.id === 'ch' + sc.idx));
+}
+playBtn.addEventListener('click', () => playing ? pause() : play());
+bigPlay.addEventListener('click', play);
+scrub.addEventListener('input', () => seek(scrub.value / 1000 * DURATION));
+muteBtn.addEventListener('click', () => { muted = !muted; muteBtn.textContent = muted ? '取消静音' : '静音'; muteBtn.setAttribute('aria-pressed', String(muted)); if (gainNode) gainNode.gain.value = muted ? 0 : 1; });
+document.addEventListener('keydown', e => { if (e.target.tagName === 'INPUT' && e.target.type !== 'range') return; if (e.code === 'Space') { e.preventDefault(); playing ? pause() : play(); } if (e.code === 'ArrowRight') seek(cur + 5); if (e.code === 'ArrowLeft') seek(cur - 5); });
+window.addEventListener('resize', () => { sizeCanvas(); draw(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden && playing) pause(); });
+draw();
+})();
+</script>
